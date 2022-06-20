@@ -9,5 +9,6 @@
 **Objectives:**
 - Physical analysis of a cubic building with 5 identical walls & a transparent wall (glass window), air infiltration, and HVAC system.
 - Thermal circuit modelling of the building.
-- Mathematical modelling as a system of Differential Algebraic Equations (DAE) and state-space representation.
-- Steady-state and dynamic simulation.
+- From the thermal circuit, obtaining the mathematical model as a system of Differential Algebraic Equations (DAE).
+- Converting the system of Differential Algebraic Equations (DAE) into state-space representation.
+- Dynamic simulation using Euler (explicit and implicit) method.
