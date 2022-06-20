@@ -1,4 +1,4 @@
-# Thermal circuit and state-space representation for a thermal circuit with capacities in every node
+# Thermal circuit and state-space representation for a thermal circuit with capacities in some nodes: cubic building
 
 | JupyterLab |  Voilà|
 | :-----------------------: | :---------------------: |
