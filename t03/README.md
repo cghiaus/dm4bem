@@ -1,4 +1,4 @@
-# From thermal circuit to state-space representation: tc2ss
+# Thermal circuit and state-space representation for a thermal circuit with capacities in every node
 
 | JupyterLab |  Voilà|
 | :-----------------------: | :---------------------: |
