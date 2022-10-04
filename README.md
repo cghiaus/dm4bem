@@ -5,10 +5,10 @@ The notebooks can be run interactively on MyBinder.com by clicking on the button
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)
 
 ## Tutorials
-- 01: [Weather data and solar radiation on a tilted surface](0101WeatherData.ipynb).
+- 01: [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
 - 02: [Thermal circuit and state-space representation for a thermal circuit with capacities in every node: simple wall](02SimpleWall.ipynb).
-- 03: [Thermal circuit and state-space representation for a thermal circuit with capacities in some nodes: cubic building](03CubeFB.ipynb).
-- 04: [Thermal circuits assembling](04AssemblingTC.ipynb).
+- 03: [Thermal circuit and state-space representation for a thermal circuit with capacities in some nodes: cubic building](03CubicBuilding.ipynb).
+- 04: [Thermal circuits assembling](04AssemblingCircuits.ipynb).
 - 05: [Switch between models: heating & cooling and free-running](05SwitchModels.ipynb).
 - 06: [Control input: heating & cooling and free-running](06Control_Input.ipynb).
 
