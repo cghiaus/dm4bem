@@ -1,8 +1,13 @@
 # Dynamic Models for Building Energy Management
 
-The notebooks can be run interactively on MyBinder.com by clicking on the button below:
+The notebooks can be run interactively on `MyBinder.org` by clicking on the buttons below:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)
+
+| JupyterLab                    |  Voilà                           |  
+| :---------------------------: | :------------------------------: |
+|Notebook **with** Python code  | Notebook **without** Python code |
+|[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)|[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)|
+
 
 ## Tutorials
 - 01: [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
