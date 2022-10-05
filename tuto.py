@@ -289,9 +289,9 @@ def P_control(filename, start_date, end_date, dt,
 
 
 def switch_models(filename, start_date, end_date, dt,
-                 Af, Bf, Cf, Df, Kpf,
-                 Ac, Bc, Cc, Dc, Kpc,
-                 Tisp, DeltaT):
+                  Af, Bf, Cf, Df, Kpf,
+                  Ac, Bc, Cc, Dc, Kpc,
+                  Tisp, DeltaT):
     """
     Use of two models, one in free-running and one perfect controller
 
@@ -583,6 +583,7 @@ def plot_results(t, y, temp_exp, q_HVAC, data):
 
     """
     fig, axs = plt.subplots(2, 1)
+
     axs[0].plot(t / 3600, y, label='$T_{indoor}$')
     axs[0].plot(t / 3600, data['To'], label='$T_{outdoor}$')
     # axs[0].plot(t / 3600, temp_exp[2], label='$T_{ss}$')
@@ -602,3 +603,36 @@ def plot_results(t, y, temp_exp, q_HVAC, data):
     fig.tight_layout()
     plt.draw()
     plt.show()
+
+
+def plot_dates(t, y, temp_exp, q_HVAC, data):
+    """
+
+    Parameters
+    ----------
+    t : Array of floats
+        Time in seconds.
+    y : Array of floats
+        Indoor temperature, °C.
+    temp_exp : TYPE
+        DESCRIPTION.
+    q_HVAC : Array of floats
+        Heat flow rate of HVAC system, W.
+    data : DataFrame
+        Index: time at dt
+        To:     outdoor temperature, °C
+        Φt1:    total solar radiation, W / m2;
+        Ti:     indoor setpoint temperature, °C;
+        Qa:     auxiliary heat flow rate, W.
+
+    Returns
+    -------
+    None.
+
+
+%matplotlib qt
+    """
+    fig, axs = plt.subplots(2, 1)
+    
+    data['Φt1'].plot(ax=axs[0])
+    

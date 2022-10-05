@@ -1,13 +1,14 @@
 # Dynamic Models for Building Energy Management
 
-The notebooks can be run interactively on `MyBinder.org` by clicking on the buttons below:
+These tutorials present a complete example of thermal dynamic simulation of a building. For the sake of simplicity, a [toy model](./figures/03_cube_principle.png) is used for the building in which 5 identical two-layer walls, a glass wall, air infiltration, and an indoor temperature control system are modelled.
 
+The tutorials go through obtaining weather data from internet, modelling the thermal transfer with thermal networks, transforming the thermal networks into systems of differential algebraic equations and state-space representation, and implementing customized control algorithms into the numerical integration loop.
 
-| JupyterLab                    |  Voilà                           |  
-| :---------------------------: | :------------------------------: |
-|Notebook **with** Python code  | Notebook **without** Python code |
-|[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)|[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)|
+The advantage of the method, as compared with other existing alternatives, is that the state-space representation is obtained; therefore eigenvalues analysis is achievable.
 
+The notebooks can be run interactively on `MyBinder.org` by clicking on the button below:
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)
 
 ## Tutorials
 - 01: [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
