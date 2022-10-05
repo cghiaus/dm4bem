@@ -268,6 +268,9 @@ def P_control(filename, start_date, end_date, dt,
     q_HVAC = Kp * (data['Ti'] - y_exp[0, :])
 
     # plot indoor and outdoor temperature
+
+    # plot_results(t, y_exp, temp_exp, q_HVAC, data)
+
     fig, axs = plt.subplots(2, 1)
     axs[0].plot(t / 3600, y_exp[0, :], label='$T_{indoor}$')
     axs[0].plot(t / 3600, data['To'], label='$T_{outdoor}$')
@@ -557,7 +560,7 @@ def inputs(filename, start_date, end_date, dt,
     return t, u, data
 
 
-def plot_results(t, y, temp_exp, q_HVAC, data):
+def plot_results_time(t, y, temp_exp, q_HVAC, data):
     """
 
     Parameters
@@ -581,6 +584,8 @@ def plot_results(t, y, temp_exp, q_HVAC, data):
     -------
     None.
 
+    Note: plot_results_time() plots as a function of time vector t.
+    Time in hours is on x-axis.
     """
     fig, axs = plt.subplots(2, 1)
 
@@ -605,7 +610,7 @@ def plot_results(t, y, temp_exp, q_HVAC, data):
     plt.show()
 
 
-def plot_dates(t, y, temp_exp, q_HVAC, data):
+def plot_results(y, q_HVAC, data):
     """
 
     Parameters
@@ -614,8 +619,6 @@ def plot_dates(t, y, temp_exp, q_HVAC, data):
         Time in seconds.
     y : Array of floats
         Indoor temperature, °C.
-    temp_exp : TYPE
-        DESCRIPTION.
     q_HVAC : Array of floats
         Heat flow rate of HVAC system, W.
     data : DataFrame
@@ -629,10 +632,25 @@ def plot_dates(t, y, temp_exp, q_HVAC, data):
     -------
     None.
 
-
-%matplotlib qt
+    Note: plot_results() plots time on x-axis
+    using `datetime` form panda index.
     """
+    df = data[['To', 'Φt1']].copy()
+    df['θi'] = y
+    df['q_HVAC'] = q_HVAC
+
+    df = df.rename(columns={'To': 'T_o',
+                            'Φt1': 'Φ_sol',
+                            'θi': 'θ_i',
+                            'q_HVAC': 'q_HVAC'})
+
     fig, axs = plt.subplots(2, 1)
-    
-    data['Φt1'].plot(ax=axs[0])
-    
+
+    df[['T_o', 'θ_i']].plot(ax=axs[0],
+                            xticks=[],
+                            ylabel='Temperature, °C')
+    axs[0].legend(['$T_o$', '$θ_i$'])
+
+    df[['Φ_sol', 'q_HVAC']].plot(ax=axs[1],
+                                 ylabel='Heat rate, W')
+    axs[1].legend(['$Φ_{sol}$', '$q_{HVAC}$'])
