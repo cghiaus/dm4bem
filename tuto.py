@@ -15,6 +15,7 @@ import dm4bem
 # --------------------
 """ concrete EngToolbox Emissivity Coefficient Materials """
 ε_wLW = 0.9     # long wave wall emmisivity
+
 """ grey to dark surface EngToolbox,
     Absorbed Solar Radiation by Surface Color """
 α_wSW = 0.2     # absortivity white surface
@@ -216,311 +217,38 @@ def step_response(duration, dt, As, Bs, Cs, Ds):
     ax.legend(loc='lower right')
 
 
-def P_control(filename, start_date, end_date, dt,
-              As, Bs, Cs, Ds, Kp):
-    # Read weather data from Energyplus .epw file
-    [data, meta] = dm4bem.read_epw(filename, coerce_year=None)
-    weather = data[["temp_air", "dir_n_rad", "dif_h_rad"]]
-    del data
-    weather.index = weather.index.map(lambda t: t.replace(year=2000))
-    weather = weather[(weather.index >= start_date) & (
-        weather.index < end_date)]
-
-    # Solar radiation on a tilted surface
-    surface_orientation = {'slope': 90,
-                           'azimuth': 0,
-                           'latitude': 45}
-    albedo = 0.2
-    rad_surf1 = dm4bem.sol_rad_tilt_surf(weather, surface_orientation, albedo)
-    rad_surf1['Φt1'] = rad_surf1.sum(axis=1)
-
-    # Interpolate weather data for time step dt
-    data = pd.concat([weather['temp_air'], rad_surf1['Φt1']], axis=1)
-    data = data.resample(str(dt) + 'S').interpolate(method='linear')
-    data = data.rename(columns={'temp_air': 'To'})
-
-    # Indoor temperature set-point
-    data['Ti'] = 20 * np.ones(data.shape[0])
-
-    # Indoor auxiliary heat flow rate
-    data['Qa'] = 0 * np.ones(data.shape[0])
-
-    # time
-    t = dt * np.arange(data.shape[0])
-
-    u = pd.concat([data['To'], data['To'], data['To'], data['Ti'],
-                   α_wSW * wall['Surface']['Concrete'] * data['Φt1'],
-                   τ_gSW * α_wSW * wall['Surface']['Glass'] * data['Φt1'],
-                   data['Qa'],
-                   α_gSW * wall['Surface']['Glass'] * data['Φt1']], axis=1)
-
-    # initial values for temperatures
-    temp_exp = 20 * np.ones([As.shape[0], u.shape[0]])
-
-    # integration in time
-    I = np.eye(As.shape[0])
-    for k in range(u.shape[0] - 1):
-        temp_exp[:, k + 1] = (I + dt * As) @ temp_exp[:, k]\
-            + dt * Bs @ u.iloc[k, :]
-    # Indoor temperature
-    y_exp = Cs @ temp_exp + Ds @ u.to_numpy().T
-    # HVAC heat flow
-    q_HVAC = Kp * (data['Ti'] - y_exp[0, :])
-
-    # plot indoor and outdoor temperature
-
-    # plot_results(t, y_exp, temp_exp, q_HVAC, data)
-
-    fig, axs = plt.subplots(2, 1)
-    axs[0].plot(t / 3600, y_exp[0, :], label='$T_{indoor}$')
-    axs[0].plot(t / 3600, data['To'], label='$T_{outdoor}$')
-    axs[0].set(xlabel='Time [h]',
-               ylabel='Temperatures [°C]',
-               title='Simulation for weather')
-    axs[0].legend(loc='upper right')
-
-    # plot total solar radiation and HVAC heat flow
-    axs[1].plot(t / 3600, q_HVAC, label='$q_{HVAC}$')
-    axs[1].plot(t / 3600, data['Φt1'], label='$Φ_{total}$')
-    axs[1].set(xlabel='Time [h]',
-               ylabel='Heat flows [W]')
-    axs[1].legend(loc='upper right')
-
-    fig.tight_layout()
-
-    return y_exp, q_HVAC
-
-
-def switch_models(filename, start_date, end_date, dt,
-                  Af, Bf, Cf, Df, Kpf,
-                  Ac, Bc, Cc, Dc, Kpc,
-                  Tisp, DeltaT):
+def inputs(filename, start_date, end_date, dt, Tisp):
     """
-    Use of two models, one in free-running and one perfect controller
+    Creates the input vector for the state-space representation in the case
+    of the toy model of a cube with window, ventilation and
+    temperature control.
 
     Parameters
     ----------
-    filename : TYPE
-        Weather file.
-    start_date : TYPE
-        DESCRIPTION.
-    end_date : TYPE
-        DESCRIPTION.
-    dt : TYPE
-        Integration time step.
-    Af, Bf, Cf, Df : TYPE
-        State-space model for free-running.
-    Kpf : TYPE
-        Controller gain for free-running (Kpf -> 0).
-    Ac, Bc, Cc, Dc : TYPE
-        State-space model for perfect control..
-    Kpc : TYPE
-        Controller gain for perfect P-control (Kpc -> infinity).
-    Tisp : TYPE
-        Indoor temperature set point.
-    DeltaT : TYPE
-        Dead-band (accepted switch) temperature.
+    filename : str
+        Name of the weather .EPW file.
+    start_date : str
+        Begining of the simulation time in format: "2000-MM-DD HH:00:00".
+        Note that "2000" stands for a generic year, not for the year 2000.
+    end_date : str
+        End of the simulation time in the same format as start_date.
+    dt : int
+        Timestep, s.
+    Tisp : int or float
+        Indoor tempertaure setpoint, °C.
 
     Returns
     -------
-    None.
+    t : np.array
+        Simulation time vector, in seconds.
+    u : DataFrame
+        Inputs of the state-space model in time
+        [DateTime, To, To, To, Ti, Φt1, Φt1, Qa, Φt1]
+    data : DataFrame
+        Weather data from .EPW file
+        [DateTime, To, Φt1, Ti, Qa]
 
     """
-    # Read weather data from Energyplus .epw file
-    [data, meta] = dm4bem.read_epw(filename, coerce_year=None)
-    weather = data[["temp_air", "dir_n_rad", "dif_h_rad"]]
-    del data
-    weather.index = weather.index.map(lambda t: t.replace(year=2000))
-    weather = weather[(weather.index >= start_date) & (
-        weather.index < end_date)]
-
-    # Solar radiation on a tilted surface
-    surface_orientation = {'slope': 90,
-                           'azimuth': 0,
-                           'latitude': 45}
-    albedo = 0.2
-    rad_surf1 = dm4bem.sol_rad_tilt_surf(weather, surface_orientation, albedo)
-    rad_surf1['Φt1'] = rad_surf1.sum(axis=1)
-
-    # Interpolate weather data for time step dt
-    data = pd.concat([weather['temp_air'], rad_surf1['Φt1']], axis=1)
-    data = data.resample(str(dt) + 'S').interpolate(method='linear')
-    data = data.rename(columns={'temp_air': 'To'})
-
-    # Indoor temperature set-point
-    data['Ti'] = 20 * np.ones(data.shape[0])
-
-    # Indoor auxiliary heat flow rate
-    data['Qa'] = 0 * np.ones(data.shape[0])
-
-    # time
-    t = dt * np.arange(data.shape[0])
-
-    u = pd.concat([data['To'], data['To'], data['To'], data['Ti'],
-                   α_wSW * wall['Surface']['Concrete'] * data['Φt1'],
-                   τ_gSW * α_wSW * wall['Surface']['Glass'] * data['Φt1'],
-                   data['Qa'],
-                   α_gSW * wall['Surface']['Glass'] * data['Φt1']], axis=1)
-
-    # initial values for temperatures
-    temp_exp = 0 * np.ones([Af.shape[0], u.shape[0]])
-    Tisp = Tisp * np.ones(u.shape[0])
-    y = np.zeros(u.shape[0])
-    y[0] = Tisp[0]
-    q_HVAC = 0 * np.ones(u.shape[0])
-
-    # integration in time
-    I = np.eye(Af.shape[0])
-    for k in range(u.shape[0] - 1):
-        if y[k] < Tisp[k] or y[k] > DeltaT + Tisp[k]:
-            temp_exp[:, k + 1] = (I + dt * Ac) @ temp_exp[:, k]\
-                + dt * Bc @ u.iloc[k, :]
-            y[k + 1] = Cc @ temp_exp[:, k + 1] + Dc @ u.iloc[k + 1]
-            q_HVAC[k + 1] = Kpc * (Tisp[k + 1] - y[k + 1])
-        else:
-            temp_exp[:, k + 1] = (I + dt * Af) @ temp_exp[:, k]\
-                + dt * Bf @ u.iloc[k, :]
-            y[k + 1] = Cf @ temp_exp[:, k + 1] + Df @ u.iloc[k]
-            q_HVAC[k + 1] = 0
-
-    # plot indoor and outdoor temperature
-    fig, axs = plt.subplots(2, 1)
-    axs[0].plot(t / 3600, y, label='$T_{indoor}$')
-    axs[0].plot(t / 3600, data['To'], label='$T_{outdoor}$')
-    axs[0].set(xlabel='Time [h]',
-               ylabel='Temperatures [°C]',
-               title='Simulation for weather')
-    axs[0].legend(loc='upper right')
-
-    # plot total solar radiation and HVAC heat flow
-    axs[1].plot(t / 3600, q_HVAC, label='$q_{HVAC}$')
-    axs[1].plot(t / 3600, data['Φt1'], label='$Φ_{total}$')
-    axs[1].set(xlabel='Time [h]',
-               ylabel='Heat flows [W]')
-    axs[1].legend(loc='upper right')
-    plt.ylim(-1500, 3000)
-    fig.tight_layout()
-
-    return y, q_HVAC
-
-
-def heat(filename, start_date, end_date, dt,
-         Af, Bf, Cf, Df, Kpf,
-         Ac, Bc, Cc, Dc, Kpc,
-         Tisp, DeltaT):
-    """
-    Use of two models, one in free-running and one perfect controller
-
-    Parameters
-    ----------
-    filename : TYPE
-        Weather file.
-    start_date : TYPE
-        DESCRIPTION.
-    end_date : TYPE
-        DESCRIPTION.
-    dt : TYPE
-        Integration time step.
-    Af, Bf, Cf, Df : TYPE
-        State-space model for free-running.
-    Kpf : TYPE
-        Controller gain for free-running (Kpf -> 0).
-    Ac, Bc, Cc, Dc : TYPE
-        State-space model for perfect control..
-    Kpc : TYPE
-        Controller gain for perfect P-control (Kpc -> infinity).
-    Tisp : TYPE
-        Indoor temperature set point.
-    DeltaT : TYPE
-        Dead-band (accepted switch) temperature.
-
-    Returns
-    -------
-    None.
-
-    """
-    # Read weather data from Energyplus .epw file
-    [data, meta] = dm4bem.read_epw(filename, coerce_year=None)
-    weather = data[["temp_air", "dir_n_rad", "dif_h_rad"]]
-    del data
-    weather.index = weather.index.map(lambda t: t.replace(year=2000))
-    weather = weather[(weather.index >= start_date) & (
-        weather.index < end_date)]
-
-    # Solar radiation on a tilted surface
-    surface_orientation = {'slope': 90,
-                           'azimuth': 0,
-                           'latitude': 45}
-    albedo = 0.2
-    rad_surf1 = dm4bem.sol_rad_tilt_surf(weather, surface_orientation, albedo)
-    rad_surf1['Φt1'] = rad_surf1.sum(axis=1)
-
-    # Interpolate weather data for time step dt
-    data = pd.concat([weather['temp_air'], rad_surf1['Φt1']], axis=1)
-    data = data.resample(str(dt) + 'S').interpolate(method='linear')
-    data = data.rename(columns={'temp_air': 'To'})
-
-    # Indoor temperature set-point
-    data['Ti'] = 20 * np.ones(data.shape[0])
-
-    # Indoor auxiliary heat flow rate
-    data['Qa'] = 0 * np.ones(data.shape[0])
-
-    # time
-    t = dt * np.arange(data.shape[0])
-
-    u = pd.concat([data['To'], data['To'], data['To'], data['Ti'],
-                   α_wSW * wall['Surface']['Concrete'] * data['Φt1'],
-                   τ_gSW * α_wSW * wall['Surface']['Glass'] * data['Φt1'],
-                   data['Qa'],
-                   α_gSW * wall['Surface']['Glass'] * data['Φt1']], axis=1)
-
-    # initial values
-    temp_exp = 0 * np.ones([Af.shape[0], u.shape[0]])
-    temp_exp[:, 0] = data['Ti'][0]
-
-    y = np.zeros(u.shape[0])
-    y[0] = data['Ti'][0]
-    q_HVAC = 0 * np.ones(u.shape[0])
-
-    # integration in time
-    I = np.eye(Af.shape[0])
-
-    for k in range(u.shape[0] - 1):
-        if y[k] < data['Ti'][k]:
-            temp_exp[:, k + 1] = (I + dt * Ac) @ temp_exp[:, k]\
-                + dt * Bc @ u.iloc[k, :]
-            y[k + 1] = Cc @ temp_exp[:, k + 1] + Dc @ u.iloc[k]
-            q_HVAC[k + 1] = Kpc * (data['Ti'][k + 1] - y[k + 1])
-        else:
-            temp_exp[:, k + 1] = (I + dt * Af) @ temp_exp[:, k]\
-                + dt * Bf @ u.iloc[k, :]
-            y[k + 1] = Cf @ temp_exp[:, k + 1] + Df @ u.iloc[k]
-            q_HVAC[k + 1] = 0
-
-    # plot indoor and outdoor temperature
-    fig, axs = plt.subplots(2, 1)
-    axs[0].plot(t / 3600, y, label='$T_{indoor}$')
-    axs[0].plot(t / 3600, data['To'], label='$T_{outdoor}$')
-    axs[0].set(xlabel='Time [h]',
-               ylabel='Temperatures [°C]',
-               title='Simulation for weather')
-    axs[0].legend(loc='upper right')
-
-    # plot total solar radiation and HVAC heat flow
-    axs[1].plot(t / 3600, q_HVAC, label='$q_{HVAC}$')
-    axs[1].plot(t / 3600, data['Φt1'], label='$Φ_{total}$')
-    axs[1].set(xlabel='Time [h]',
-               ylabel='Heat flows [W]')
-    axs[1].legend(loc='upper right')
-    plt.ylim(-1500, 3000)
-    fig.tight_layout()
-
-    return y, q_HVAC
-
-
-def inputs(filename, start_date, end_date, dt,
-           As, Bs, Cs, Ds, Kp, Tisp):
     # Read weather data from Energyplus .epw file
     [data, meta] = dm4bem.read_epw(filename, coerce_year=None)
     weather = data[["temp_air", "dir_n_rad", "dif_h_rad"]]
@@ -654,3 +382,147 @@ def plot_results(y, q_HVAC, data):
     df[['Φ_sol', 'q_HVAC']].plot(ax=axs[1],
                                  ylabel='Heat rate, W')
     axs[1].legend(['$Φ_{sol}$', '$q_{HVAC}$'])
+
+
+def P_control(filename, start_date, end_date, dt,
+              As, Bs, Cs, Ds, Kp, Tisp):
+    t, u, data = inputs(filename, start_date, end_date, dt, Tisp)
+
+    # Initialize temperature vector
+    θ = np.full([As.shape[0], u.shape[0]], np.inf)
+    θ[:, 0] = Tisp * np.ones(As.shape[0])
+
+    I = np.eye(As.shape[0])
+
+    # Simulation in time
+    for k in range(u.shape[0] - 1):
+        θ[:, k + 1] = (I + dt * As) @ θ[:, k]\
+            + dt * Bs @ u.iloc[k, :]
+    # Indoor temperature
+    y = Cs @ θ + Ds @ u.to_numpy().T
+    y = y.T
+    # HVAC heat flow
+    q_HVAC = Kp * (data['Ti'] - y[:, 0])
+
+    # Plot results
+    return y, q_HVAC, data
+
+
+def switch_models(filename, start_date, end_date, dt,
+                  Af, Bf, Cf, Df, Kpf,
+                  Ac, Bc, Cc, Dc, Kpc,
+                  Tisp, DeltaT):
+    """
+    Use of two models, one in free-running and one perfect controller
+
+    Parameters
+    ----------
+    filename : TYPE
+        Weather file.
+    start_date : TYPE
+        DESCRIPTION.
+    end_date : TYPE
+        DESCRIPTION.
+    dt : TYPE
+        Integration time step.
+    Af, Bf, Cf, Df : TYPE
+        State-space model for free-running.
+    Kpf : TYPE
+        Controller gain for free-running (Kpf -> 0).
+    Ac, Bc, Cc, Dc : TYPE
+        State-space model for perfect control..
+    Kpc : TYPE
+        Controller gain for perfect P-control (Kpc -> infinity).
+    Tisp : TYPE
+        Indoor temperature set point.
+    DeltaT : TYPE
+        Dead-band (accepted switch) temperature.
+
+    Returns
+    -------
+    None.
+
+    """
+    t, u, data = inputs(filename, start_date, end_date, dt, Tisp)
+
+    # initial values for temperatures
+    temp_exp = 0 * np.ones([Af.shape[0], u.shape[0]])
+    Tisp = Tisp * np.ones(u.shape[0])
+    y = np.zeros(u.shape[0])
+    y[0] = Tisp[0]
+    q_HVAC = 0 * np.ones(u.shape[0])
+
+    # integration in time
+    I = np.eye(Af.shape[0])
+    for k in range(u.shape[0] - 1):
+        if y[k] < Tisp[k] or y[k] > DeltaT + Tisp[k]:
+            temp_exp[:, k + 1] = (I + dt * Ac) @ temp_exp[:, k]\
+                + dt * Bc @ u.iloc[k, :]
+            y[k + 1] = Cc @ temp_exp[:, k + 1] + Dc @ u.iloc[k + 1]
+            q_HVAC[k + 1] = Kpc * (Tisp[k + 1] - y[k + 1])
+        else:
+            temp_exp[:, k + 1] = (I + dt * Af) @ temp_exp[:, k]\
+                + dt * Bf @ u.iloc[k, :]
+            y[k + 1] = Cf @ temp_exp[:, k + 1] + Df @ u.iloc[k]
+            q_HVAC[k + 1] = 0
+    return y, q_HVAC, data
+
+
+def heat(filename, start_date, end_date, dt,
+         Af, Bf, Cf, Df, Kpf,
+         Ac, Bc, Cc, Dc, Kpc,
+         Tisp, DeltaT):
+    """
+    Use of two models, one in free-running and one perfect controller
+
+    Parameters
+    ----------
+    filename : TYPE
+        Weather file.
+    start_date : TYPE
+        DESCRIPTION.
+    end_date : TYPE
+        DESCRIPTION.
+    dt : TYPE
+        Integration time step.
+    Af, Bf, Cf, Df : TYPE
+        State-space model for free-running.
+    Kpf : TYPE
+        Controller gain for free-running (Kpf -> 0).
+    Ac, Bc, Cc, Dc : TYPE
+        State-space model for perfect control..
+    Kpc : TYPE
+        Controller gain for perfect P-control (Kpc -> infinity).
+    Tisp : TYPE
+        Indoor temperature set point.
+    DeltaT : TYPE
+        Dead-band (accepted switch) temperature.
+
+    Returns
+    -------
+    None.
+
+    """
+    t, u, data = inputs(filename, start_date, end_date, dt, Tisp)
+
+    # initial values for temperatures
+    temp_exp = 0 * np.ones([Af.shape[0], u.shape[0]])
+    Tisp = Tisp * np.ones(u.shape[0])
+    y = np.zeros(u.shape[0])
+    y[0] = Tisp[0]
+    q_HVAC = 0 * np.ones(u.shape[0])
+
+    I = np.eye(Af.shape[0])
+    for k in range(u.shape[0] - 1):
+        if y[k] < data['Ti'][k]:
+            temp_exp[:, k + 1] = (I + dt * Ac) @ temp_exp[:, k]\
+                + dt * Bc @ u.iloc[k, :]
+            y[k + 1] = Cc @ temp_exp[:, k + 1] + Dc @ u.iloc[k]
+            q_HVAC[k + 1] = Kpc * (data['Ti'][k + 1] - y[k + 1])
+        else:
+            temp_exp[:, k + 1] = (I + dt * Af) @ temp_exp[:, k]\
+                + dt * Bf @ u.iloc[k, :]
+            y[k + 1] = Cf @ temp_exp[:, k + 1] + Df @ u.iloc[k]
+            q_HVAC[k + 1] = 0
+
+    return y, q_HVAC, data
