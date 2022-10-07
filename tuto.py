@@ -4,6 +4,13 @@
 Created on Mon Oct  4 19:05:01 2021
 
 @author: cghiaus
+
+Functions used in the tutorials.
+Constructs the model of a cubic building with:
+    - 5 identical two-layer walls
+    - 1 transparent wall
+    - air infiltration
+    - proportional controller for indoor air temperature.
 """
 
 import numpy as np
@@ -41,8 +48,8 @@ Va_dot = ACH * Va / 3600    # m³/s air infiltration
 
 # Thermophyscal properties
 # ------------------------
-air = {'Density': 1.2,                      # kg/m³
-       'Specific heat': 1000}               # J/kg.K
+air = {'Density': 1.2,                          # kg/m³
+       'Specific heat': 1000}                   # J/kg.K
 
 """ Incropera et al. (2011) Fundamantals of heat and mass transfer, 7 ed,
     Table A3,
@@ -63,6 +70,10 @@ h = pd.DataFrame([{'in': 4., 'out': 10}])
 
 def thermal_circuit(Kp):
     """
+    Constructs the thermal circuit as a system of Algebraic Differential
+    Equations (DAE) characterized by matrices A, G, C and vectors b, f
+    by assembling elemetary thermal circuits.
+
     Parameters
     ----------
     Kp : float
@@ -71,11 +82,12 @@ def thermal_circuit(Kp):
     Returns
     -------
     TCa : dict
-        {'A': A, 'G': G, 'b': b, 'C': C, 'f': f, 'y': y}.
+        {'A': A, 'G': G, 'b': b, 'C': C, 'f': f, 'y': y}
 
-    DAE Model :
-        C * θ_dot = (A.T * G * A) * θ + A.T * G * b + f
-        y:  nodes of interest
+        where
+        DAE Model :
+            C @ θ_dot = (A.T @ G @ A) @ θ + A.T @ G @ b + f
+            y:  nodes of interest
     """
     # Thermal conductances
     # Conduction
@@ -182,6 +194,29 @@ def thermal_circuit(Kp):
 
 
 def step_response(duration, dt, As, Bs, Cs, Ds):
+    """
+    Compute and plot the step response of a state-space model.
+
+    Parameters
+    ----------
+    duration : int
+        Duration of simulation, s.
+    dt : int
+        Time step, s.
+    As : np.array of float
+        State matrix.
+    Bs : np.array of float
+        Input matrix.
+    Cs : np.array of float
+        Output matrix.
+    Ds : np.array of float
+        feedthrough (or feedforward) matrix.
+
+    Returns
+    -------
+    None.
+
+    """
     # Step response
     # -------------
     # number of steps
@@ -290,6 +325,10 @@ def inputs(filename, start_date, end_date, dt, Tisp):
 
 def plot_results_time(t, y, temp_exp, q_HVAC, data):
     """
+    Plots the results of the simulations in function of time (in h)
+    in two subplots:
+        - outdoor and indoor temperature variation;
+        - solar radiation and HVAC heat flow rate.
 
     Parameters
     ----------
@@ -340,6 +379,10 @@ def plot_results_time(t, y, temp_exp, q_HVAC, data):
 
 def plot_results(y, q_HVAC, data):
     """
+    Plots the results of the simulations in function of time (in DateTime)
+    in two subplots:
+        - outdoor and indoor temperature variation;
+        - solar radiation and HVAC heat flow rate.
 
     Parameters
     ----------
@@ -386,6 +429,44 @@ def plot_results(y, q_HVAC, data):
 
 def P_control(filename, start_date, end_date, dt,
               As, Bs, Cs, Ds, Kp, Tisp):
+    """
+    HAVC system as a P-controller that heats and cools.
+
+    Parameters
+    ----------
+    filename : str
+        Name of the weather .EPW file.
+    start_date : str
+        Begining of the simulation time in format: "2000-MM-DD HH:00:00".
+        Note that "2000" stands for a generic year, not for the year 2000.
+    end_date : str
+        End of the simulation time in the same format as start_date.
+    dt : int
+        Timestep, s.
+    As : np.array of float
+        State matrix.
+    Bs : np.array of float
+        Input matrix.
+    Cs : np.array of float
+        Output matrix.
+    Ds : np.array of float
+        feedthrough (or feedforward) matrix.
+    Kp : int or float
+        Static gain of the controller, W/K.
+    Tisp : int or float
+        Indoor temperature setpoint, °C.
+
+    Returns
+    -------
+    y : np.array of floats
+        Vector of indoor temperature, °C.
+    q_HVAC : pd.Series
+        Heat rate of HVAC in time.
+        [DateTime, q].
+    data : DataFrame
+        Weather data from .EPW file
+        [DateTime, To, Φt1, Ti, Qa]
+    """
     t, u, data = inputs(filename, start_date, end_date, dt, Tisp)
 
     # Initialize temperature vector
@@ -398,11 +479,14 @@ def P_control(filename, start_date, end_date, dt,
     for k in range(u.shape[0] - 1):
         θ[:, k + 1] = (I + dt * As) @ θ[:, k]\
             + dt * Bs @ u.iloc[k, :]
+
     # Indoor temperature
     y = Cs @ θ + Ds @ u.to_numpy().T
     y = y.T
+
     # HVAC heat flow
     q_HVAC = Kp * (data['Ti'] - y[:, 0])
+    q_HVAC = q_HVAC.rename('q')
 
     # Plot results
     return y, q_HVAC, data
@@ -413,30 +497,31 @@ def switch_models(filename, start_date, end_date, dt,
                   Ac, Bc, Cc, Dc, Kpc,
                   Tisp, DeltaT):
     """
-    Use of two models, one in free-running and one perfect controller
+    Use of two models, one in free-running and one with perfect controller.
 
     Parameters
     ----------
-    filename : TYPE
-        Weather file.
-    start_date : TYPE
-        DESCRIPTION.
-    end_date : TYPE
-        DESCRIPTION.
-    dt : TYPE
-        Integration time step.
-    Af, Bf, Cf, Df : TYPE
-        State-space model for free-running.
-    Kpf : TYPE
+    filename : str
+        Name of the weather .EPW file.
+    start_date : str
+        Begining of the simulation time in format: "2000-MM-DD HH:00:00".
+        Note that "2000" stands for a generic year, not for the year 2000.
+    end_date : str
+        End of the simulation time in the same format as start_date.
+    dt : int
+        Timestep, s.
+    Af, Bf, Cf, Df : np.array of float
+        State-space model for free-running (i.e. low Kp)
+    Kpf : int or float
         Controller gain for free-running (Kpf -> 0).
-    Ac, Bc, Cc, Dc : TYPE
-        State-space model for perfect control..
-    Kpc : TYPE
+    Ac, Bc, Cc, Dc : np.array of float
+        State-space model for "perfect" controller (i.e. high Kp).
+    Kpc : int or float
         Controller gain for perfect P-control (Kpc -> infinity).
-    Tisp : TYPE
-        Indoor temperature set point.
-    DeltaT : TYPE
-        Dead-band (accepted switch) temperature.
+    Tisp : int or float
+        Indoor temperature set point, °C.
+    DeltaT : int or float
+        Dead-band (accepted switch) temperature, °C.
 
     Returns
     -------
@@ -473,30 +558,32 @@ def heat(filename, start_date, end_date, dt,
          Ac, Bc, Cc, Dc, Kpc,
          Tisp, DeltaT):
     """
-    Use of two models, one in free-running and one perfect controller
+    Use of two models, one in free-running and one with perfect controller.
+    The "cooling" is not acting, i.e. q_HVAC >= 0.
 
     Parameters
     ----------
-    filename : TYPE
-        Weather file.
-    start_date : TYPE
-        DESCRIPTION.
-    end_date : TYPE
-        DESCRIPTION.
-    dt : TYPE
-        Integration time step.
-    Af, Bf, Cf, Df : TYPE
-        State-space model for free-running.
-    Kpf : TYPE
+    filename : str
+        Name of the weather .EPW file.
+    start_date : str
+        Begining of the simulation time in format: "2000-MM-DD HH:00:00".
+        Note that "2000" stands for a generic year, not for the year 2000.
+    end_date : str
+        End of the simulation time in the same format as start_date.
+    dt : int
+        Timestep, s.
+    Af, Bf, Cf, Df : np.array of float
+        State-space model for free-running (i.e. low Kp)
+    Kpf : int or float
         Controller gain for free-running (Kpf -> 0).
-    Ac, Bc, Cc, Dc : TYPE
-        State-space model for perfect control..
-    Kpc : TYPE
+    Ac, Bc, Cc, Dc : np.array of float
+        State-space model for "perfect" controller (i.e. high Kp).
+    Kpc : int or float
         Controller gain for perfect P-control (Kpc -> infinity).
-    Tisp : TYPE
-        Indoor temperature set point.
-    DeltaT : TYPE
-        Dead-band (accepted switch) temperature.
+    Tisp : int or float
+        Indoor temperature set point, °C.
+    DeltaT : int or float
+        Dead-band (accepted switch) temperature, °C.
 
     Returns
     -------
