@@ -110,3 +110,10 @@ The general structure of the report:
 - Steady-state results.
 - Dynamic simulation results.
 - Optimization (e.g., insulation, HVAC control, ventilation rate, solar shading).
+
+-------
+
+## Licence
+Code is released under [MIT Lincence](https://choosealicense.com/licenses/mit/).
+
+[![Creative Commons License](http://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
