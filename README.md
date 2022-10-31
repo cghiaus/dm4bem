@@ -64,7 +64,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 # Exam questions
 1. Defintion of science.
 2. Shortly describe the four paradigms of science (empirical, theoretical, computational and data science).
-3. Reproduc(ibility crises: definition and how to overcome it.
+3. Reproducibility crises: definition and how to overcome it.
 4. Describe the reproducibility spectrum in Computational Science.
 5. Definition of physical and computational causality.
 6. Definition of inputs, outputs and states of a dynamic model.
