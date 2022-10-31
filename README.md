@@ -20,7 +20,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 - 05: [Switch between models: heating & cooling and free-running](05SwitchModels.ipynb).
 - 06: [Control input: heating & cooling and free-running](06Control_Input.ipynb).
 
---------
+---
 
 ## Sessions
 1. **Model**
@@ -63,36 +63,46 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 
 # Exam questions
 1. Defintion of science.
-2. Reproducibility crises: definition and how to overcome it.
-3. Definition of physical and computational causality.
-4. Conservation laws: two examples.
-5. Relation between conservation laws and symmetry in physics.
-6. Constitutive laws: one example of a universal law and one of a phenomenological law.
-7. Explain why there are only seven fundamental units in the SI system of units.
-8. What is the difference between the classical SI system of units and the system addopted on 20 May 2019? Why is this difference important?
-9. What is the relationship between energy and temperature?
-10. Draw the basic network for heat transfer modelling. Explain each element of the network:
+2. Shortly describe the four paradigms of science (empirical, theoretical, computational and data science).
+3. Reproduc(ibility crises: definition and how to overcome it.
+4. Describe the reproducibility spectrum in Computational Science.
+5. Definition of physical and computational causality.
+6. Definition of inputs, outputs and states of a dynamic model.
+7. Conservation laws: two examples.
+8. Relation between conservation laws and symmetry in physics.
+9. Constitutive laws: one example of a universal law and one of a phenomenological law.
+10. Explain why there are only seven fundamental units in the SI system of units.
+11. What is the difference between the classical SI system of units and the system addopted on 20 May 2019? Why is this difference important?
+12. What is the relationship between energy and temperature?
+13. Draw the basic network for heat transfer modelling. Explain each element of the network:
     - temperaure nodes,
     - flow branches,
     - conductances,
     - capacities,
     - temperature sources,
     - flow sources.
-11. Draw the framework for obtaining the *difussion equation*.
-12. Show the analogy between:
+14. Draw the framework for obtaining the *difussion equation*.
+15. Show the analogy between:
     - heat transfer,
     - mass transfer,
     - electrical conduction.
-13. Define the modes of heat transfer and give the expression of conductance for:
+16. The framework for obtaining models for transport phenomena (i.e.n heat trasfer, mass transfer, momentum transfer, electrical conduction).
+17. Define the modes of heat transfer and give the expression of conductance for:
     - conduction,
     - convection,
     - radiation,
     - advection.
-14. Conservation of energy in steady-state and in dynamics.
-15. Definition of sensible heat.
-16. Surface phenomena and volume phenomena in energy balance equation.
-17. Draw a wall and a window. Make a thermal network model of this system.
-18. Explain the difference between *Differential Algebraic Equations* model and *state-space* representation.
+18. Conservation of energy in steady-state and in dynamics.
+19. Definition of sensible heat.
+29. Surface phenomena and volume phenomena in energy balance equation.
+21. Draw a wall and a window. Make a thermal network model of this system.
+22. Explain the difference between *Differential Algebraic Equations* model and *state-space* representation.
+23. Explain the shape and the elements of the following matrices and vectors of a *Differential Algebraic Equations* model $C \dot{\theta} = -A^T G A \theta + A^T G b + f$:
+    - $A$ - incidence marix;
+    - $G$ - conductance matrix;
+    - $C$- capacity matrix;
+    - $b$ - temperature source vector;
+    - $f$ - flow-rate source vector.
 
 -------------
 
@@ -113,7 +123,7 @@ The general structure of the report:
 
 -------
 
-## Licence
+# Licence
 Code is released under [MIT Lincence](https://choosealicense.com/licenses/mit/).
 
 [![Creative Commons License](http://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
