@@ -26,7 +26,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 1. **Model**
  - Draw the plan of a simple building.
  - Formulate the hypothesis for boundary conditions, windows, doors, and wall composition.
- - Write down the adjancy matrix **A**, the conductance matrix **G** and the capacity matrix **C**.
+ - Write down the incidence matrix $A$, the conductance matrix $G$ and the capacity matrix $C$.
  - Define the inputs: temperature sources (vector **b**) and flow rate sources (vector **f**).
 2. **Pyhton implementation: steady-state**
  - Implement the matrices **A**, **G** and **C**.
