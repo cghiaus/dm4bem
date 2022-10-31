@@ -20,8 +20,6 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 - 05: [Switch between models: heating & cooling and free-running](05SwitchModels.ipynb).
 - 06: [Control input: heating & cooling and free-running](06Control_Input.ipynb).
 
----
-
 ## Sessions
 1. **Model**
  - Draw the plan of a simple building.
@@ -42,7 +40,6 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
  - Write the report in *Jupyter* notebooks.
  - Publish the report on *GitHub* and *MyBinder*.
 
---------
 
 **References**
 
@@ -58,8 +55,6 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 4. J. Kneifel (2013). Annual Whole Building Energy Simulation of the NIST Net Zero Energy Residential Test Facility Design, *NIST Technical Note 1767*, [DOI 10.6028/NIST.TN.1767](https://doi.org/10.6028/NIST.TN.1767)
 
 5. U.S. Department of Energy (2022). EnergyPlus v.22.1.0 Documentation, Engineering Reference ([link](https://energyplus.net/assets/nrel_custom/pdfs/pdfs_v22.1.0/EngineeringReference.pdf))
-
-------------
 
 # Exam questions
 1. Defintion of science.
@@ -104,8 +99,6 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
     - $b$ - temperature source vector;
     - $f$ - flow-rate source vector.
 
--------------
-
 # Written report
 The report will be written in *Jupyter* notebook, posted on *GitHub.com* and liked to *MyBinder.org*.
 
@@ -115,15 +108,15 @@ The general structure of the report:
 - Description of the building: drawing, dimensions, materials, material properties, etc.
 - Hypothesis: location, boundary conditions, schedule for usage, etc.
 - Thermal model (with justifications).
-- Mathematical model: Differential Algebraic Equations (matrices **A**, **G**, and **C**, vectors **b** and **f**) and state-space representation (matrices **A**, **B**, **C** and **D** and vector **u**).
+- Mathematical model: Differential Algebraic Equations (matrices $A$, $G$, and $C$, vectors $b$ and $f$) and state-space representation (matrices $A$, $B$, $C$ and $D$ and vector $u$).
 - Model implementation in Python.
 - Steady-state results.
 - Dynamic simulation results.
 - Optimization (e.g., insulation, HVAC control, ventilation rate, solar shading).
 
--------
 
-# Licence
+**Licence**
+
 Code is released under [MIT Lincence](https://choosealicense.com/licenses/mit/).
 
 [![Creative Commons License](http://i.creativecommons.org/l/by/4.0/88x31.png)](http://creativecommons.org/licenses/by/4.0/)
