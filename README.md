@@ -98,6 +98,12 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
     - $C$- capacity matrix;
     - $b$ - temperature source vector;
     - $f$ - flow-rate source vector.
+24. What is the relationship between the eigenvalues of the q-state matrix and the time constants of the thermal model?
+25. Define the numerical stability. What is the condition for the numerical stability of Euler explicit method of integration in time?
+26. Explain the differences between Euler implicit and explicit methods.
+27. Comment on the advantages and the disadvantages of Euler implicit and explicit methods.
+28. Consider the the model of heat transfert through a simple wall (tutorial 29. Explain the qualitative differences between the step response at outdoor temperature input and the step response to indoor heat flow rate.
+30. Discuss the influence of intial conditions on the dynamic response.
 
 # Written report
 The report will be written in *Jupyter* notebook, posted on *GitHub.com* and liked to *MyBinder.org*.
