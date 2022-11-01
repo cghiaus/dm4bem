@@ -103,7 +103,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 26. Explain the differences between Euler implicit and explicit methods.
 27. Comment on the advantages and the disadvantages of Euler implicit and explicit methods.
 28. Consider the the model of heat transfert through a simple wall (tutorial 29. Explain the qualitative differences between the step response at outdoor temperature input and the step response to indoor heat flow rate.
-30. Discuss the influence of intial conditions on the dynamic response.
+29. Discuss the influence of intial conditions on the dynamic response.
 
 # Written report
 The report will be written in *Jupyter* notebook, posted on *GitHub.com* and liked to *MyBinder.org*.
