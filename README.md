@@ -61,49 +61,52 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 2. Shortly describe the four paradigms of science (empirical, theoretical, computational and data science).
 3. Reproducibility crises: definition and how to overcome it.
 4. Describe the reproducibility spectrum in Computational Science.
-5. Definition of physical and computational causality.
-6. Definition of inputs, outputs and states of a dynamic model.
-7. Conservation laws: two examples.
-8. Relation between conservation laws and symmetry in physics.
-9. Constitutive laws: one example of a universal law and one of a phenomenological law.
-10. Explain why there are only seven fundamental units in the SI system of units.
-11. What is the difference between the classical SI system of units and the system addopted on 20 May 2019? Why is this difference important?
-12. What is the relationship between energy and temperature?
-13. Draw the basic network for heat transfer modelling. Explain each element of the network:
+5. What is a (mathematical) model?
+6. Definition of physical and computational causality.
+7. Definition of inputs, outputs and states of a dynamic model.
+8. Conservation laws: two examples.
+9. Relation between conservation laws and symmetry in physics.
+10. Constitutive laws: one example of a universal law and one of a phenomenological law.
+11. Explain why there are only seven fundamental units in the SI system of units.
+12. What is the difference between the classical SI system of units and the system addopted on 20 May 2019? Why is this difference important?
+13. What is the relationship between energy and temperature?
+14. Draw the basic network for heat transfer modelling. Explain each element of the network:
     - temperaure nodes,
     - flow branches,
     - conductances,
     - capacities,
     - temperature sources,
     - flow sources.
-14. Draw the framework for obtaining the *difussion equation*.
-15. Show the analogy between:
+15. Draw the framework for obtaining the *difussion equation*.
+16. Show the analogy between:
     - heat transfer,
     - mass transfer,
     - electrical conduction.
-16. The framework for obtaining models for transport phenomena (i.e.n heat trasfer, mass transfer, momentum transfer, electrical conduction).
-17. Define the modes of heat transfer and give the expression of conductance for:
+17. The framework for obtaining models for transport phenomena (i.e.n heat trasfer, mass transfer, momentum transfer, electrical conduction).
+18. Define the modes of heat transfer and give the expression of conductance for:
     - conduction,
     - convection,
     - radiation,
     - advection.
-18. Conservation of energy in steady-state and in dynamics.
-19. Definition of sensible heat.
-29. Surface phenomena and volume phenomena in energy balance equation.
-21. Draw a wall and a window. Make a thermal network model of this system.
-22. Explain the difference between *Differential Algebraic Equations* model and *state-space* representation.
-23. Explain the shape and the elements of the following matrices and vectors of a *Differential Algebraic Equations* model $C \dot{\theta} = -A^T G A \theta + A^T G b + f$:
+19. Conservation of energy in steady-state and in dynamics.
+20. Definition of sensible heat.
+21. Surface phenomena and volume phenomena in energy balance equation.
+22. Draw a wall and a window. Make a thermal network model of this system.
+23. Explain the difference between *Differential Algebraic Equations* model and *state-space* representation.
+24. Explain the shape and the elements of the following matrices and vectors of a *Differential Algebraic Equations* model $C \dot{\theta} = -A^T G A \theta + A^T G b + f$:
     - $A$ - incidence marix;
     - $G$ - conductance matrix;
     - $C$- capacity matrix;
     - $b$ - temperature source vector;
     - $f$ - flow-rate source vector.
-24. What is the relationship between the eigenvalues of the q-state matrix and the time constants of the thermal model?
-25. Define the numerical stability. What is the condition for the numerical stability of Euler explicit method of integration in time?
-26. Explain the differences between Euler implicit and explicit methods.
-27. Comment on the advantages and the disadvantages of Euler implicit and explicit methods.
-28. Consider the the model of heat transfert through a simple wall (tutorial 29. Explain the qualitative differences between the step response at outdoor temperature input and the step response to indoor heat flow rate.
-29. Discuss the influence of intial conditions on the dynamic response.
+25. What is the relationship between the eigenvalues of the q-state matrix and the time constants of the thermal model?
+26. Define the numerical stability. What is the condition for the numerical stability of Euler explicit method of integration in time?
+27. Explain the differences between Euler implicit and explicit methods.
+28. Comment on the advantages and the disadvantages of Euler implicit and explicit methods.
+29. Consider the the model of heat transfert through a simple wall (tutorial 29. Explain the qualitative differences between the step response at outdoor temperature input and the step response to indoor heat flow rate.
+30. Discuss the influence of intial conditions on the dynamic response.
+31. How can be estimated the response (or settling) time of a dynamic system? What is the usefulness of the response time in dynamic simulation?
+32. How can be estimated the time step for the dynamic simulation? What can be done if the time step is too small as compared with the time step needed for the problem?
 
 # Written report
 The report will be written in *Jupyter* notebook, posted on *GitHub.com* and liked to *MyBinder.org*.
