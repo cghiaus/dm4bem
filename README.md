@@ -25,11 +25,11 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
  - Draw the plan of a simple building.
  - Formulate the hypothesis for boundary conditions, windows, doors, and wall composition.
  - Write down the incidence matrix $A$, the conductance matrix $G$ and the capacity matrix $C$.
- - Define the inputs: temperature sources (vector **b**) and flow rate sources (vector **f**).
+ - Define the inputs: temperature sources (vector $b$) and flow rate sources (vector $f$).
 2. **Pyhton implementation: steady-state**
- - Implement the matrices **A**, **G** and **C**.
+ - Implement the matrices $A$, $G$ and $C$.
  - Calculate the solar flows.
- - Write the input vectors **b** and **f** in time.
+ - Write the input vectors $b$ and $f$ in time.
  - Calculate steady-state response.
 3. **Pyhton implementation: simulation**
  - Simulate a step response.
