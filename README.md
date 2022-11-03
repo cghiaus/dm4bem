@@ -81,7 +81,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
     - heat transfer,
     - mass transfer,
     - electrical conduction.
-16. The framework for obtaining models for transport phenomena (i.e., heat trasfer, mass transfer, momentum transfer, electrical conduction).
+16. Draw the framework for obtaining models for transport phenomena (i.e., heat trasfer, mass transfer, momentum transfer, electrical conduction).
 17. Define the modes of heat transfer and give the expression of conductance for:
     - conduction,
     - convection,
