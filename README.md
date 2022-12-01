@@ -57,7 +57,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 5. U.S. Department of Energy (2022). EnergyPlus v.22.1.0 Documentation, Engineering Reference ([link](https://energyplus.net/assets/nrel_custom/pdfs/pdfs_v22.1.0/EngineeringReference.pdf))
 
 # Exam questions
-1. Defintion of science.
+1. Definition of science.
 2. Shortly describe the four paradigms of science (empirical, theoretical, computational and data science).
 3. Reproducibility crises: definition and how to overcome it.
 4. Describe the reproducibility spectrum in Computational Science.
@@ -68,10 +68,10 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 9. Relation between conservation laws and symmetry in physics.
 10. Constitutive laws: one example of a universal law and one of a phenomenological law.
 11. Explain why there are only seven fundamental units in the SI system of units.
-12. What is the difference between the classical SI system of units and the system addopted on 20 May 2019? Why is this difference important?
+12. What is the difference between the classical SI system of units and the system adopted on 20 May 2019? Why is this difference important?
 13. What is the relationship between energy and temperature?
 14. Draw the basic network for heat transfer modelling. Explain each element of the network:
-    - temperaure nodes,
+    - temperature nodes,
     - flow branches,
     - conductances,
     - capacities,
@@ -103,7 +103,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 26. Explain the differences between Euler implicit and explicit methods.
 27. Comment on the advantages and the disadvantages of Euler implicit and explicit methods.
 28. Consider the the model of heat transfert through a simple wall (tutorial 29). Explain the qualitative differences between the step response to outdoor temperature input and the step response to indoor heat flow rate.
-29. Discuss the influence of the intial conditions on the dynamic response.
+29. Discuss the influence of the initial conditions on the dynamic response.
 30. How can be estimated the response (or settling) time of a dynamic system? What is the usefulness of the response time in dynamic simulation?
 31. How can be estimated the time step for the dynamic simulation? What can be done if the time step is too small as compared to the time step needed for the problem?
 
