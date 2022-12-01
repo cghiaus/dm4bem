@@ -98,7 +98,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
     - $C$ - capacity matrix;
     - $b$ - temperature source vector;
     - $f$ - flow-rate source vector.
-24. What is the relationship between the eigenvalues of the the state matrix and the time constants of the thermal model?
+24. What is the relationship between the eigenvalues of the state matrix and the time constants of the thermal model?
 25. Define the numerical stability. What is the condition for the numerical stability of Euler explicit method of integration in time?
 26. Explain the differences between Euler implicit and explicit methods.
 27. Comment on the advantages and the disadvantages of Euler implicit and explicit methods.
