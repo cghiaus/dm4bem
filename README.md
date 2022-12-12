@@ -56,6 +56,13 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 
 5. U.S. Department of Energy (2022). EnergyPlus v.22.1.0 Documentation, Engineering Reference ([link](https://energyplus.net/assets/nrel_custom/pdfs/pdfs_v22.1.0/EngineeringReference.pdf))
 
+6. NIST (2008) Guide for the Use of the International System of Units (SI) ([link](https://physics.nist.gov/cuu/pdf/sp811.pdf))
+
+7. BIPM (2008) Evaluation of measurement data — Guide to the expression of uncertainty in measurement ([link](https://www.bipm.org/documents/20126/2071204/JCGM_100_2008_E.pdf/cb0ef43f-baa5-11cf-3f85-4dcd86f77bd6))
+
+8. BIPM (2019) The International System of Units (SI), 9th edition
+([link](https://www.bipm.org/documents/20126/41483022/SI-Brochure-9.pdf))
+
 # Exam questions
 1. Definition of science.
 2. Shortly describe the four paradigms of science (empirical, theoretical, computational and data science).
