@@ -12,6 +12,8 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)
 
+*Note*: The repository containes the MATLAB® version 6 scripts and the PDFs of the tutorials in the folder `M`.
+
 ## Tutorials
 - 01: [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
 - 02: [Thermal circuit and state-space representation for a thermal circuit with capacities in every node: simple wall](02SimpleWall.ipynb).
