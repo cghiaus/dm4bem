@@ -1,7 +1,9 @@
-# MATLAB® v.6 codes
+# MATLAB®/Octave scripts
+
+The scripts are written for MATLAB® v.6 or GNU Octave v. 6.
 
 **Contents**
 
-- `M`: MATLAB® scripts
-- `TutorialsPDF_M`: tutorials for MATLAB scripts.
+- `M`: MATLAB®/Octave scripts
+- `TutorialsPDF_M`: tutorials for MATLAB®/Octave scripts.
 
