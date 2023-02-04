@@ -15,12 +15,13 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 *Note*: The repository containes the MATLAB® version 6 scripts and the PDFs of the tutorials in the folder `M`.
 
 ## Tutorials
-- 01: [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
-- 02: [Thermal circuit and state-space representation for a thermal circuit with capacities in every node: simple wall](02SimpleWall.ipynb).
-- 03: [Thermal circuit and state-space representation for a thermal circuit with capacities in some nodes: cubic building](03CubicBuilding.ipynb).
-- 04: [Thermal circuits assembling](04AssemblingCircuits.ipynb).
-- 05: [Switch between models: heating & cooling and free-running](05SwitchModels.ipynb).
-- 06: [Control input: heating & cooling and free-running](06Control_Input.ipynb).
+1. [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
+2. [Thermal circuit and state-space representation for a thermal circuit with capacities in every node: simple wall](02SimpleWall.ipynb).
+3. [Thermal circuit and state-space representation for a thermal circuit with capacities in some nodes: cubic building](03CubicBuilding.ipynb).
+4. [Thermal circuits assembling](04AssemblingCircuits.ipynb).
+5. [Switch between models: heating & cooling and free-running](05SwitchModels.ipynb).
+6. [Control input: heating & cooling and free-running](06Control_Input.ipynb).
+7. [Radiation coupled with convection](07Coupled_rad_convection.ipynb).
 
 ## Sessions
 1. **Model**
