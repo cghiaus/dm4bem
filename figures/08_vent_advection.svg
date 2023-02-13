@@ -692,9 +692,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.5557346"
-     inkscape:cx="376.13154"
-     inkscape:cy="151.35389"
+     inkscape:zoom="1.6162932"
+     inkscape:cx="196.18866"
+     inkscape:cy="156.69879"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -1000,7 +1000,7 @@
          id="tspan3401-0"
          x="42.569874"
          y="60.747692"
-         style="font-size:3.52777px;stroke-width:0.264583">2</tspan></text>
+         style="font-size:3.52777px;stroke-width:0.264583">room 2</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.9389px;line-height:0px;font-family:sans-serif;stroke-width:0.264583"
@@ -1011,7 +1011,7 @@
          id="tspan3401-5-7"
          x="42.515846"
          y="81.313507"
-         style="font-size:3.52777px;stroke-width:0.264583">4</tspan></text>
+         style="font-size:3.52777px;stroke-width:0.264583">room 4</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.9389px;line-height:0px;font-family:sans-serif;stroke-width:0.264583"
@@ -1221,7 +1221,7 @@
          id="tspan3401-0-6"
          x="103.77985"
          y="60.842648"
-         style="font-size:3.52777px;stroke-width:0.264583">2</tspan></text>
+         style="font-size:3.52777px;stroke-width:0.264583">room 2</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.9389px;line-height:0px;font-family:sans-serif;stroke-width:0.264583"
@@ -1232,7 +1232,7 @@
          id="tspan3401-5-7-5"
          x="103.96146"
          y="81.290634"
-         style="font-size:3.52777px;stroke-width:0.264583">4</tspan></text>
+         style="font-size:3.52777px;stroke-width:0.264583">room 4</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.9389px;line-height:0px;font-family:sans-serif;stroke-width:0.264583"
@@ -1504,5 +1504,49 @@
        cy="91.480759"
        rx="0.25678736"
        ry="0.34238315" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:0px;font-family:sans-serif;stroke-width:0.264583"
+       x="40.032707"
+       y="99.517273"
+       id="text3403-0-0"><tspan
+         sodipodi:role="line"
+         id="tspan3401-0-5"
+         x="40.032707"
+         y="99.517273"
+         style="font-size:3.52777px;stroke-width:0.264583">outdoor</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:0px;font-family:sans-serif;stroke-width:0.264583"
+       x="40.110443"
+       y="41.1577"
+       id="text3403-0-0-7"><tspan
+         sodipodi:role="line"
+         id="tspan3401-0-5-0"
+         x="40.110443"
+         y="41.1577"
+         style="font-size:3.52777px;stroke-width:0.264583">outdoor</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:0px;font-family:sans-serif;stroke-width:0.264583"
+       x="99.205284"
+       y="41.1577"
+       id="text3403-0-0-3"><tspan
+         sodipodi:role="line"
+         id="tspan3401-0-5-9"
+         x="99.205284"
+         y="41.1577"
+         style="font-size:3.52777px;stroke-width:0.264583">outdoor</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:0px;font-family:sans-serif;stroke-width:0.264583"
+       x="99.254745"
+       y="99.597748"
+       id="text3403-0-0-6"><tspan
+         sodipodi:role="line"
+         id="tspan3401-0-5-5"
+         x="99.254745"
+         y="99.597748"
+         style="font-size:3.52777px;stroke-width:0.264583">outdoor</tspan></text>
   </g>
 </svg>
