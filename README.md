@@ -22,6 +22,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 5. [Switch between models: heating & cooling and free-running](05SwitchModels.ipynb).
 6. [Control input: heating & cooling and free-running](06Control_Input.ipynb).
 7. [Radiation coupled with convection](07Coupled_rad_convection.ipynb).
+8. [Sensible thermal load in steady-state](08Thermal_load.ipynb)
 
 ## Sessions
 1. **Model**
