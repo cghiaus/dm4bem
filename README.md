@@ -23,6 +23,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 6. [Control input: heating & cooling and free-running](06Control_Input.ipynb).
 7. [Radiation coupled with convection](07Coupled_rad_convection.ipynb).
 8. [Sensible thermal load in steady-state](08Thermal_load.ipynb)
+9. [Air flow by ventilation](09Air_flow_ventilation.ipynb)
 
 ## Sessions
 1. **Model**
