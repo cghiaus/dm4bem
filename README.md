@@ -15,7 +15,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 *Note*: The repository containes the MATLAB® version 6 scripts and the PDFs of the tutorials in the folder `M`.
 
 ## Slides
-(Lecture 1)[https://filesender.renater.fr/?s=download&token=849ece14-fdb4-4fdd-b525-b46179afdce5]
+[Lecture 1](https://filesender.renater.fr/?s=download&token=849ece14-fdb4-4fdd-b525-b46179afdce5)
 
 ## Tutorials
 1. [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
