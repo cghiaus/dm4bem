@@ -24,8 +24,8 @@ insulation = {'Conductivity': 0.040,    # W/(m⋅K)
               'Specific heat': 1210,    # J/(kg⋅K)
               'Width': 0.08}            # m
 
-wall = pd.DataFrame.from_dict({'Material_1': insulation,
-                               'Material_2': concrete},
+wall = pd.DataFrame.from_dict({'Layer_1': concrete,
+                               'Layer_2': insulation},
                               orient='index')
 
 air = {'Density': 1.2,                  # kg/m³
@@ -54,17 +54,17 @@ no_θ = no_q = 7
 
 # Conductance matrix
 R = np.zeros([no_q])
-R[0] = R_cv['out'] + R_cd['Material_1'] / 8
-R[1] = R[2] = R[3] = R_cd['Material_1'] / 4
-R[4] = R_cd['Material_1'] / 8 + R_cd['Material_2'] / 4
-R[5] = R_cd['Material_2'] / 2
-R[6] = R_cd['Material_2'] / 4 + R_cv['in']
+R[0] = R_cv['out'] + R_cd['Layer_1'] / 8
+R[1] = R[2] = R[3] = R_cd['Layer_1'] / 4
+R[4] = R_cd['Layer_1'] / 8 + R_cd['Layer_2'] / 4
+R[5] = R_cd['Layer_2'] / 2
+R[6] = R_cd['Layer_2'] / 4 + R_cv['in']
 G = np.diag(np.reciprocal(R))
 
 # Capacity matrix
 C = np.zeros(no_θ)
-C[0] = C[1] = C[2] = C[3] = C_wall['Material_1'] / 4
-C[4] = C[5] = C_wall['Material_2'] / 2
+C[0] = C[1] = C[2] = C[3] = C_wall['Layer_1'] / 4
+C[4] = C[5] = C_wall['Layer_2'] / 2
 C[6] = C_air
 C = np.diag(C)
 
