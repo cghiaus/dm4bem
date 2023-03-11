@@ -42,13 +42,14 @@ filename = './weather_data/FRA_Lyon.074810_IWEC.epw'
 [data, meta] = read_epw(filename, coerce_year=None)
 
 # Extract the month and year from the DataFrame index with the format 'MM-YYYY'
-month_year = data.index.strftime('%m-%y')
+month_year = data.index.strftime('%m-%Y')
 
 # Create a set of unique month-year combinations
 unique_month_years = sorted(set(month_year))
 
 # Create a DataFrame from the unique month-year combinations
-pd.DataFrame(unique_month_years, columns=['Month-Year'])
+print(pd.DataFrame(unique_month_years, columns=['Month-Year']))
+
 
 # select columns of interest
 weather_data = data[["temp_air", "dir_n_rad", "dif_h_rad"]]
