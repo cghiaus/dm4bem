@@ -4,6 +4,30 @@
 Created on Sat Mar 11 17:56:05 2023
 
 @author: cghiaus
+
+This script imports various libraries and modules such as numpy, pandas, and
+matplotlib.pyplot. It then reads a file in EnergyPlus Weather Format (epw)
+containing weather data for Lyon, France.
+
+The script then selects three columns from the weather data, namely
+air temperature, direct radiation, and diffuse radiation,
+and replaces the year in the index with 2000.
+
+The script defines a start date and an end date and filters the weather data
+based on these dates.
+
+The script then creates three plots using the filtered weather data:
+    - A line plot of outdoor air temperature over time.
+    - A line plot of solar radiation (normal direct and horizontal diffuse)
+    over time.
+    - A line plot of solar radiation on a tilted surface over time,
+    calculated using the filtered weather data and the slope, azimuth,
+    and latitude of the surface.
+
+Finally, the script calculates the solar radiation on a tilted surface
+by computing the direct radiation, diffuse radiation, and reflected radiation.
+It then stores the calculated solar radiation as a new column
+in the filtered weather data.
 """
 
 import numpy as np
