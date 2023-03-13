@@ -189,7 +189,6 @@ plt.show()
 
 # Simulation with outdoor temperature from weather data
 # -----------------------------------------------------
-
 # Outdoor temperature from weather data
 filename = './weather_data/FRA_Lyon.074810_IWEC.epw'
 start_date = '2000-04-10'
@@ -217,8 +216,8 @@ u = np.block([[θ_out],
              [np.zeros(θ_out.shape[0])]])
 
 # initial coditions
-θ_exp = np.zeros([no_θ, t.shape[0]])
-θ_imp = np.zeros([no_θ, t.shape[0]])
+θ_exp = 20 * np.ones([no_θ, t.shape[0]])
+θ_imp = 20 * np.ones([no_θ, t.shape[0]])
 
 # time integration: Euler explicit & implicit
 for k in range(u.shape[1] - 1):
@@ -229,10 +228,61 @@ for k in range(u.shape[1] - 1):
 
 # plot results
 fig, ax = plt.subplots()
-ax.plot(t / 3600 / 24, θ_exp[-1, :], label='Indoor temperature')
 ax.plot(t / 3600 / 24, θ_out, label='Outdoor temperature')
+ax.plot(t / 3600 / 24, θ_exp[-1, :], label='Indoor temperature')
 ax.set(xlabel='Time [days]',
        ylabel='Air temperature [°C]',
        title='Explicit Euler')
 ax.legend()
+plt.show()
+
+# Simulation with outdoor temperature from weather data with Pandas
+# -----------------------------------------------------------------
+start_date = '2000-04-10'
+end_date = '2000-05-15'
+
+# read data and keep air temperature
+filename = './weather_data/FRA_Lyon.074810_IWEC.epw'
+[data, meta] = dm4bem.read_epw(filename, coerce_year=None)
+weather = data[["temp_air"]].copy()
+del data
+
+# replace years with year 2000 and select time interval
+weather.index = weather.index.map(lambda t: t.replace(year=2000))
+weather = weather.loc[start_date:end_date]
+
+# resample weather data
+data = weather['temp_air']
+data = data.resample(str(Δt) + 'S').interpolate(method='linear')
+data = data.rename('To').to_frame()
+
+# indoor auxiliary heat
+data['Qa'] = 0 * np.ones(data.shape[0])
+
+# input vector
+u = data[['To', 'Qa']]
+
+# initial conditions
+θ_exp = 20 * np.ones([As.shape[0], u.shape[0]])
+θ_imp = 20 * np.ones([As.shape[0], u.shape[0]])
+
+# time integration: Euler explicit & implicit
+n_states = As.shape[0]
+I = np.eye(n_states)
+
+for k in range(u.shape[0] - 1):
+    θ_exp[:, k + 1] = (I + Δt * As) @ θ_exp[:, k]\
+        + Δt * Bs @ u.iloc[k, :]
+    θ_imp[:, k + 1] = np.linalg.inv(I - Δt * As) @\
+        (θ_imp[:, k] + Δt * Bs @ u.iloc[k, :])
+
+data['θi_exp'] = θ_exp[-1, :]
+data['θi_imp'] = θ_imp[-1, :]
+
+ax = data[['To', 'θi_exp']].plot()
+# data[['To', 'θi_exp', 'θi_imp']].plot()
+ax.legend(['Outdoor temperature', 'Indoor temperature'])
+ax.set(xlabel='Time',
+       ylabel='Air temperature [°C]',
+       title='Explicit Euler')
 plt.show()
