@@ -34,7 +34,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from dm4bem import read_epw, sol_rad_tilt_surf
+from ..py.dm4bem import read_epw, sol_rad_tilt_surf
 
 filename = './weather_data/FRA_Lyon.074810_IWEC.epw'
 # filename = './weather_data/FRA_AR_Lyon-Bron.AP.074800_TMYx.2004-2018.epw'
@@ -63,9 +63,7 @@ start_date = '2000-06-29'
 end_date = '2000-07-02'
 
 # Filter the data based on the start and end dates
-weather_data = weather_data.loc[(
-    weather_data.index >= start_date) & (
-    weather_data.index < end_date)]
+weather_data = weather_data.loc[start_date:end_date]
 
 del data
 weather_data.head()
