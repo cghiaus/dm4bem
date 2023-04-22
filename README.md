@@ -14,6 +14,9 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 
 *Note*: The repository containes the MATLAB® version 6 scripts and the PDFs of the tutorials in the folder `M`.
 
+## Slides
+[Lecture 1](https://filesender.renater.fr/?s=download&token=849ece14-fdb4-4fdd-b525-b46179afdce5)
+
 ## Tutorials
 1. [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
 2. [Thermal circuit and state-space representation for a thermal circuit with capacities in every node: simple wall](02SimpleWall.ipynb).
@@ -41,7 +44,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
  - Simulate the response to weather data.
  - Debug and optimize.
  - Complex controllers (dead-band, model predictive control).
-4. **Write reproducible report**
+4. **Reproducible report**
  - Write the report in *Jupyter* notebooks.
  - Publish the report on *GitHub* and *MyBinder*.
 
