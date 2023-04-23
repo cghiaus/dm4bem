@@ -40,12 +40,13 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
      - flow-rate paths,
      - thermal conductances for conduction, convection, long-wave radiation, advection, and P-controllers,
      - sources of temperature and flow-rate,
-     - number the temperature nodes (starting from 0),
-     - number the flow-rate branches (starting from 0).
+- Number the temperature nodes and the flow-rate branches (starting from 0).
  - Calculate the thermal conductances for conduction, convection, long-wave radiation, and advection.
  - Calculate the thermal capacities.
  - Write down the incidence matrix $A$, the conductance matrix $G$ and the capacity matrix $C$ of the system of Algebraic Differential Equations (DAE).
  - Define the inputs: temperature sources (vector $b$) and flow rate sources (vector $f$).
+ - Write in Pyhthon the incidence matrix $A$, the conductance matrix $G$ and the capacity matrix $C$ of the system of Algebraic Differential Equations (DAE).
+ - Write in Pyhthon the vectors of pointers to the temperature sources $b$, flow-rate sources $f$, and outputs $y$.
  - **Assignment 1**: Model
      - [Grup 1, 2](https://classroom.github.com/a/Fh4jnCT2)
      - [Grup 3, 4](https://classroom.github.com/a/bl3pb-J7)
