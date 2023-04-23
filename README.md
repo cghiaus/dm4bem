@@ -14,9 +14,6 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 
 *Note*: The repository containes the MATLAB® version 6 scripts and the PDFs of the tutorials in the folder `M`.
 
-## Slides
-[Lecture 1](https://filesender.renater.fr/?s=download&token=849ece14-fdb4-4fdd-b525-b46179afdce5)
-
 ## Tutorials
 1. [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
 2. [Thermal circuit and state-space representation for a thermal circuit with capacities in every node: simple wall](02SimpleWall.ipynb).
@@ -28,28 +25,92 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 8. [Sensible thermal load in steady-state](08Thermal_load.ipynb)
 9. [Air flow by ventilation](09Air_flow_ventilation.ipynb)
 
-## Sessions
+## Project sessions
+*Note*: The assignments are written in *Jupyter* notebooks and posted on Github in the repository indicated in each assignment. Each repository needs to have:
+- `README.md` file that contains at least the names of the members of the team and a link to `mybinder.org`.
+- `environment.yml` file that lists the dependencies required for the project.
+
+
 1. **Model**
- - Draw the plan of a simple building.
- - Formulate the hypothesis for boundary conditions, windows, doors, and wall composition.
- - Write down the incidence matrix $A$, the conductance matrix $G$ and the capacity matrix $C$.
+ - Draw the plan of a two-zone building.
+ - Formulate the hypothesis for boundary conditions.
+ - Chose the types of windows, doors, and walls.
+ - Draw the thermal circuit:
+     - temperature nodes,
+     - flow-rate paths,
+     - thermal conductances for conduction, convection, long-wave radiation, advection, and P-controllers,
+     - sources of temperature and flow-rate,
+     - number the temperature nodes (starting from 0),
+     - number the flow-rate branches (starting from 0).
+ - Calculate the thermal conductances for conduction, convection, long-wave radiation, and advection.
+ - Calculate the thermal capacities.
+ - Write down the incidence matrix $A$, the conductance matrix $G$ and the capacity matrix $C$ of the system of Algebraic Differential Equations (DAE).
  - Define the inputs: temperature sources (vector $b$) and flow rate sources (vector $f$).
-2. **Pyhton implementation: steady-state**
- - Implement the matrices $A$, $G$ and $C$.
- - Calculate the solar flows.
- - Write the input vectors $b$ and $f$ in time.
- - Calculate steady-state response.
-3. **Pyhton implementation: simulation**
- - Simulate a step response.
- - Simulate the response to weather data.
- - Debug and optimize.
- - Complex controllers (dead-band, model predictive control).
-4. **Reproducible report**
+ - **Assignment 1**: Model
+     - [Grup 1, 2](https://classroom.github.com/a/Fh4jnCT2)
+     - [Grup 3, 4](https://classroom.github.com/a/bl3pb-J7)
+ 
+2. **Steady-state**
+ - Implement in Python the matrices $A$, $G$ and $C$ of the system of Diferential Algebraic Equations (DAE).
+ - Give values to inputs (temperature sources, $b$, and flow rate sources $f$).
+ - Calculate steady-state response of the system of Diferential Algebraic Equations (DAE).
+ - From the systems of Diferential Algebraic Equations (DAE), obtain the matrices $A_s$, $B_s$, $C_s$, and $D_s$ of the state-space representation.
+ - Give the values of the input vector $u = [b_T^T, f_Q^T]^T$.
+ - Obtain the steady-state response of the state-space representation.
+ - Compare the results obtained for the system of Diferential Algebraic Equations (DAE) with the results obtained for the state-space representation. 
+ - **Assignment 2**: Steady-state
+     - [Grup 1, 2](https://classroom.github.com/a/6HWx5wze)
+     - [Grup 3, 4](https://classroom.github.com/a/T6cSvhT4)
+ 
+3. **Simulate step response**
+ - Determine the time step and the settling time.
+ - Give the input vector $u$.
+ - Integrate in time the differential equations.
+ - Plot the results.
+ - Discuss the results.
+ - **Assignment 3**: Simulate step response
+     - [Grup 1, 2](https://classroom.github.com/a/1YlSy6uy)
+     - [Grup 3, 4](https://classroom.github.com/a/XR32Fbwz)
+
+4. **Simulate response to weather**
+ - Define start and end time.
+ - Prepare the inputs:
+     - read weather data,
+     - calculate the solar irradiance on the walls,
+     - resample the weather data
+     - give the other inputs (e.g., internal gains),
+     - give the input vector in time.
+ - Define the initial conditions.
+ - Integrate in time.
+ - Plot the results.
+ - Discuss the results.
+ - Implement other controllers (dead-band, model predictive control).
+ - Discuss the results.
+ - **Assignment 4**: Simulate the response to weather
+     - [Grup 1, 2](https://classroom.github.com/a/1VJkM4fh)
+     - [Grup 3, 4](https://classroom.github.com/a/1VJkM4fh)
+ 
+5. **Reproducible report**
  - Write the report in *Jupyter* notebooks.
  - Publish the report on *GitHub* and *MyBinder*.
+ - **Assignment 5**:
+     - [Grup 1, 2](https://classroom.github.com/a/4YDPKTYq)
+     - [Grup 3, 4](https://classroom.github.com/a/Be3bPaux)
+
+**Support**
+
+1. [Anaconda cheetsheet](https://docs.continuum.io/anaconda/user-guide/cheatsheet/)
+2. [The Python Tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
+3. [Jupyter Notebook cheatsheet](https://medium.com/ibm-data-science-experience/markdown-for-jupyter-notebooks-cheatsheet-386c05aeebed)
+4. [NumPy for MATLAB users](http://mathesaurus.sourceforge.net/matlab-numpy.html)
+5. [GitHub Docs](https://docs.github.com/en)
+6. [Get started with Binder](https://mybinder.readthedocs.io/en/latest/introduction.html)
+7. [LaTeX/Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
+8. [LaTex Equations](https://latex.codecogs.com/eqneditor/editor.php)
+9. [Latex Table generator](https://www.tablesgenerator.com/markdown_tables#)
 
 
-**References**
+## References
 
 1. C. Ghiaus (2013). Causality issue in the heat balance method for calculating the design heating and cooling load. *Energy* 50: 292-301
 [DOI 10.1016/j.energy.2012.10.024](http://dx.doi.org/10.1016/j.energy.2012.10.024), [HAL 03605823]( https://hal.archives-ouvertes.fr/hal-03605823/document)
