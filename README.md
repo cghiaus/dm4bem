@@ -102,15 +102,18 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
 
 **Support**
 
-1. [Anaconda cheetsheet](https://docs.continuum.io/anaconda/user-guide/cheatsheet/)
-2. [The Python Tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
-3. [Jupyter Notebook cheatsheet](https://medium.com/ibm-data-science-experience/markdown-for-jupyter-notebooks-cheatsheet-386c05aeebed)
-4. [NumPy for MATLAB users](http://mathesaurus.sourceforge.net/matlab-numpy.html)
-5. [GitHub Docs](https://docs.github.com/en)
+1. [GitHub Docs](https://docs.github.com/en):
+    - [Getting started with your GitHub account](https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account)
+    - [Accepting the assignement](https://www.youtube.com/watch?v=jXpT8eOzzCM)
+    - [How to add files to Github Repository](https://www.youtube.com/watch?v=-rcz_CZe2Ec)
+2. [Anaconda cheetsheet](https://docs.continuum.io/anaconda/user-guide/cheatsheet/)
+3. [Python tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
+4. [Jupyter notebook cheatsheet](https://medium.com/ibm-data-science-experience/markdown-for-jupyter-notebooks-cheatsheet-386c05aeebed)
+5. [NumPy for MATLAB users](http://mathesaurus.sourceforge.net/matlab-numpy.html)
 6. [Get started with Binder](https://mybinder.readthedocs.io/en/latest/introduction.html)
-7. [LaTeX/Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
-8. [LaTex Equations](https://latex.codecogs.com/eqneditor/editor.php)
-9. [Latex Table generator](https://www.tablesgenerator.com/markdown_tables#)
+7. [Markdown and LaTeX introduction](https://ashki23.github.io/markdown-latex.html)
+    - [LaTeX equation editor](https://latex.codecogs.com/eqneditor/editor.php)
+    - [Markdown table generator](https://www.tablesgenerator.com/markdown_tables#)
 
 
 ## References
