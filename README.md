@@ -26,9 +26,11 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 9. [Air flow by ventilation](09Air_flow_ventilation.ipynb)
 
 ## Project sessions
-*Note*: The assignments are written in *Jupyter* notebooks and posted on Github in the repository indicated in each assignment. Each repository needs to have:
+The assignments are written in *Jupyter* notebooks and posted on Github in the repository indicated in each assignment. Each repository needs to have:
 - `README.md` file that contains at least the names of the members of the team and a link to `mybinder.org`.
 - `environment.yml` file that lists the dependencies required for the project.
+
+The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) structured with [headings](https://www.markdownguide.org/basic-syntax/#headings) and equations need written in [LaTeX](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html#LaTeX-equations).
 
 
 1. **Model**
