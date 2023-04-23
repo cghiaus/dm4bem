@@ -89,14 +89,14 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Discuss the results.
  - Implement other controllers (dead-band, model predictive control).
  - Discuss the results.
- - **Assignment 4**: Simulate the response to weather
+ - **Assignment 4**: Simulate response to weather
      - [Grup 1, 2](https://classroom.github.com/a/1VJkM4fh)
      - [Grup 3, 4](https://classroom.github.com/a/1VJkM4fh)
  
 5. **Reproducible report**
  - Write the report in *Jupyter* notebooks.
  - Publish the report on *GitHub* and *MyBinder*.
- - **Assignment 5**:
+ - **Assignment 5**: Reproducible report
      - [Grup 1, 2](https://classroom.github.com/a/4YDPKTYq)
      - [Grup 3, 4](https://classroom.github.com/a/Be3bPaux)
 
