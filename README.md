@@ -30,7 +30,7 @@ The assignments are written in *Jupyter* notebooks and posted on Github in the r
 - `README.md` file that contains at least the names of the members of the team and a link to `mybinder.org`.
 - `environment.yml` file that lists the dependencies required for the project.
 
-The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) structured with [headings](https://www.markdownguide.org/basic-syntax/#headings) and equations need written in [LaTeX](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html#LaTeX-equations).
+The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) structured with [headings](https://www.markdownguide.org/basic-syntax/#headings) and equations need to be written in [LaTeX](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html#LaTeX-equations).
 
 
 1. **Model**
