@@ -25,6 +25,8 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 8. [Sensible thermal load in steady-state](08Thermal_load.ipynb)
 9. [Air flow by ventilation](09Air_flow_ventilation.ipynb)
 
+[Slides of the lectures](https://filesender.renater.fr/?s=download&token=e4432033-c204-4d44-b23a-e47d3265012d)
+
 ## Project sessions
 The assignments are written in *Jupyter* notebooks and posted on Github in the repository indicated in each assignment. Each repository needs to have:
 - `README.md` file that contains at least the names of the members of the team and a link to `mybinder.org`.
