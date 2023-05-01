@@ -1,5 +1,8 @@
 # Dynamic Models for Building Energy Management
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 These tutorials present a complete example of thermal dynamic simulation of a building. For the sake of simplicity, a [toy model](https://en.m.wikipedia.org/wiki/Toy_model) is used for the [building](./figures/03_cube_principle.png) in which 5 identical two-layer walls, a glass wall, air infiltration, and an indoor temperature control system are modelled.
 
 The tutorials go through obtaining weather data from internet, modelling the thermal transfer with thermal networks, transforming the thermal networks into systems of differential algebraic equations and state-space representation, and implementing customized control algorithms into the numerical integration loop.
@@ -9,8 +12,6 @@ The advantage of the method, as compared with other existing alternatives, is th
 The disadvantage is that, in the current implementation, application on large models is tedious and prone to errors. 
 
 The notebooks can be run interactively on `MyBinder.org` by clicking on the button below:
-
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)
 
 *Note*: The repository containes the MATLAB® version 6 scripts and the PDFs of the tutorials in the folder `M`.
 
