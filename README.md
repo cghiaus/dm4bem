@@ -30,8 +30,8 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 
 ## Project sessions
 
-- Friday, May 26, 2023: Deadline for report submission
-- Tuesday, May 30, 2023: Defence of reports
+- Wednesday, May 31, 2023: Deadline for report submission
+- Friday, June 02, 2023: Defence of reports
 
 The assignments are written in *Jupyter* notebooks and posted on Github in the repository indicated in each assignment. Each repository needs to have:
 - `README.md` file that contains at least the names of the members of the team and a link to `mybinder.org`.
