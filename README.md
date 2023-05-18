@@ -3,9 +3,6 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-
-<iframe src="https://pod.uphf.fr/video/2882-sessionatelier-03-tp-a-distance/?start=1638&is_iframe=true" width="640" height="360" style="padding: 0; margin: 0; border:0" allowfullscreen ></iframe>
-
 These tutorials present a complete example of thermal dynamic simulation of a building. For the sake of simplicity, a [toy model](https://en.m.wikipedia.org/wiki/Toy_model) is used for the [building](./figures/03_cube_principle.png) in which 5 identical two-layer walls, a glass wall, air infiltration, and an indoor temperature control system are modelled.
 
 The tutorials go through obtaining weather data from internet, modelling the thermal transfer with thermal networks, transforming the thermal networks into systems of differential algebraic equations and state-space representation, and implementing customized control algorithms into the numerical integration loop.
