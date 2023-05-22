@@ -57,8 +57,8 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Write in Pyhthon the incidence matrix $A$, the conductance matrix $G$ and the capacity matrix $C$ of the system of Algebraic Differential Equations (DAE).
  - Write in Pyhthon the vectors of pointers to the temperature sources $b$, flow-rate sources $f$, and outputs $y$.
  - **Assignment 1**: Model
-     - [Grup 1, 2](https://classroom.github.com/a/Fh4jnCT2)
-     - [Grup 3, 4](https://classroom.github.com/a/bl3pb-J7)
+     - [Group 1](https://classroom.github.com/a/Fh4jnCT2)
+     - [Group 2](https://classroom.github.com/a/bl3pb-J7)
  
 2. **Steady-state**
  - Implement in Python the matrices $A$, $G$ and $C$ of the system of Diferential Algebraic Equations (DAE).
@@ -69,8 +69,8 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Obtain the steady-state response of the state-space representation.
  - Compare the results obtained for the system of Diferential Algebraic Equations (DAE) with the results obtained for the state-space representation. 
  - **Assignment 2**: Steady-state
-     - [Grup 1, 2](https://classroom.github.com/a/6HWx5wze)
-     - [Grup 3, 4](https://classroom.github.com/a/T6cSvhT4)
+     - [Group 1](https://classroom.github.com/a/6HWx5wze)
+     - [Group 2](https://classroom.github.com/a/T6cSvhT4)
  
 3. **Simulate step response**
  - Determine the time step and the settling time.
@@ -79,8 +79,8 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Plot the results.
  - Discuss the results.
  - **Assignment 3**: Simulate step response
-     - [Grup 1, 2](https://classroom.github.com/a/1YlSy6uy)
-     - [Grup 3, 4](https://classroom.github.com/a/XR32Fbwz)
+     - [Group 1](https://classroom.github.com/a/1YlSy6uy)
+     - [Group 2](https://classroom.github.com/a/XR32Fbwz)
 
 4. **Simulate response to weather**
  - Define start and end time.
@@ -97,15 +97,15 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Implement other controllers (dead-band, model predictive control).
  - Discuss the results.
  - **Assignment 4**: Simulate response to weather
-     - [Grup 1, 2](https://classroom.github.com/a/1VJkM4fh)
-     - [Grup 3, 4](https://classroom.github.com/a/1VJkM4fh)
+     - [Group 1](https://classroom.github.com/a/1VJkM4fh)
+     - [Group 2](https://classroom.github.com/a/1VJkM4fh)
  
 5. **Reproducible report**
  - Write the report in *Jupyter* notebooks.
  - Publish the report on *GitHub* and *MyBinder*.
  - **Assignment 5**: Reproducible report
-     - [Grup 1, 2](https://classroom.github.com/a/4YDPKTYq)
-     - [Grup 3, 4](https://classroom.github.com/a/Be3bPaux)
+     - [Group 1](https://classroom.github.com/a/4YDPKTYq)
+     - [Group 2](https://classroom.github.com/a/Be3bPaux)
 
 **Support**
 
