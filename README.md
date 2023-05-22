@@ -1,7 +1,8 @@
 # Dynamic Models for Building Energy Management
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/cghiaus/dm4bem/blob/main/LICENSE)
+
 
 These tutorials present a complete example of thermal dynamic simulation of a building. For the sake of simplicity, a [toy model](https://en.m.wikipedia.org/wiki/Toy_model) is used for the [building](./figures/03_cube_principle.png) in which 5 identical two-layer walls, a glass wall, air infiltration, and an indoor temperature control system are modelled.
 
@@ -29,11 +30,7 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 [Slides of the lectures](https://filesender.renater.fr/?s=download&token=e4432033-c204-4d44-b23a-e47d3265012d)
 
 ## Project sessions
-
-- Wednesday, May 31, 2023: Deadline for report submission
-- Friday, June 02, 2023: Defence of reports
-
-The assignments are written in *Jupyter* notebooks and posted on GitHub Classroom` in the repository indicated in each assignment. Each repository needs to have:
+The assignments are written in *Jupyter* notebooks and posted on Github in the repository indicated in each assignment. Each repository needs to have:
 - `README.md` file that contains at least the names of the members of the team and a link to `mybinder.org`.
 - `environment.yml` file that lists the dependencies required for the project.
 
@@ -57,8 +54,8 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Write in Pyhthon the incidence matrix $A$, the conductance matrix $G$ and the capacity matrix $C$ of the system of Algebraic Differential Equations (DAE).
  - Write in Pyhthon the vectors of pointers to the temperature sources $b$, flow-rate sources $f$, and outputs $y$.
  - **Assignment 1**: Model
-     - [Group 1](https://classroom.github.com/a/Fh4jnCT2)
-     - [Group 2](https://classroom.github.com/a/bl3pb-J7)
+     - [Grup 1, 2](https://classroom.github.com/a/Fh4jnCT2)
+     - [Grup 3, 4](https://classroom.github.com/a/bl3pb-J7)
  
 2. **Steady-state**
  - Implement in Python the matrices $A$, $G$ and $C$ of the system of Diferential Algebraic Equations (DAE).
@@ -69,8 +66,8 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Obtain the steady-state response of the state-space representation.
  - Compare the results obtained for the system of Diferential Algebraic Equations (DAE) with the results obtained for the state-space representation. 
  - **Assignment 2**: Steady-state
-     - [Group 1](https://classroom.github.com/a/6HWx5wze)
-     - [Group 2](https://classroom.github.com/a/T6cSvhT4)
+     - [Grup 1, 2](https://classroom.github.com/a/6HWx5wze)
+     - [Grup 3, 4](https://classroom.github.com/a/T6cSvhT4)
  
 3. **Simulate step response**
  - Determine the time step and the settling time.
@@ -79,8 +76,8 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Plot the results.
  - Discuss the results.
  - **Assignment 3**: Simulate step response
-     - [Group 1](https://classroom.github.com/a/1YlSy6uy)
-     - [Group 2](https://classroom.github.com/a/XR32Fbwz)
+     - [Grup 1, 2](https://classroom.github.com/a/1YlSy6uy)
+     - [Grup 3, 4](https://classroom.github.com/a/XR32Fbwz)
 
 4. **Simulate response to weather**
  - Define start and end time.
@@ -97,15 +94,15 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Implement other controllers (dead-band, model predictive control).
  - Discuss the results.
  - **Assignment 4**: Simulate response to weather
-     - [Group 1](https://classroom.github.com/a/1VJkM4fh)
-     - [Group 2](https://classroom.github.com/a/1VJkM4fh)
+     - [Grup 1, 2](https://classroom.github.com/a/1VJkM4fh)
+     - [Grup 3, 4](https://classroom.github.com/a/1VJkM4fh)
  
 5. **Reproducible report**
  - Write the report in *Jupyter* notebooks.
  - Publish the report on *GitHub* and *MyBinder*.
  - **Assignment 5**: Reproducible report
-     - [Group 1](https://classroom.github.com/a/4YDPKTYq)
-     - [Group 2](https://classroom.github.com/a/Be3bPaux)
+     - [Grup 1, 2](https://classroom.github.com/a/4YDPKTYq)
+     - [Grup 3, 4](https://classroom.github.com/a/Be3bPaux)
 
 **Support**
 
