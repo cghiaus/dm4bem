@@ -111,7 +111,9 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
     - [Accepting the assignement](https://www.youtube.com/watch?v=jXpT8eOzzCM)
     - [How to add files to Github Repository](https://www.youtube.com/watch?v=-rcz_CZe2Ec)
 2. [Anaconda cheetsheet](https://docs.continuum.io/anaconda/user-guide/cheatsheet/)
-3. [Python tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
+3. Python
+    - [Python tutorial](https://docs.python.org/3/tutorial/#the-python-tutorial)
+    - [Python course CS50 (Harvard)](https://cs50.harvard.edu/python/2022/weeks/)
 4. [Jupyter notebook cheatsheet](https://medium.com/ibm-data-science-experience/markdown-for-jupyter-notebooks-cheatsheet-386c05aeebed)
 5. [NumPy for MATLAB users](http://mathesaurus.sourceforge.net/matlab-numpy.html)
 6. [Get started with Binder](https://mybinder.readthedocs.io/en/latest/introduction.html)
