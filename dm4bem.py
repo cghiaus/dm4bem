@@ -42,7 +42,7 @@ def TCAss(TCd, AssX):
     TCa : Dictionary
         DESCRIPTION.
         Assembled thermal circuit:
-            TCdk = {'A': A, 'G': G, 'b': b, 'C': C, 'f': f, 'y': y}
+            TCdk = {'A': A, 'G': G, 'C': C, 'b': b, 'f': f, 'y': y}
     """
     # Create assembing matrix Ass from AssX
     TCdf = pd.DataFrame(TCd).transpose()
@@ -129,7 +129,7 @@ def TCAss(TCd, AssX):
     ya = u[nq:]     # elements of f for merged nodes > 1
     ya[ya.nonzero()] = 1
 
-    TCa = {'A': Aa, 'G': Ga, 'b': ba, 'C': Ca, 'f': fa, 'y': ya}
+    TCa = {'A': Aa, 'G': Ga, 'C': Ca, 'b': ba, 'f': fa, 'y': ya}
 
     TCdf['q local'] = row_Adq_local
     TCdf['q global'] = row_Adq_global
@@ -139,7 +139,7 @@ def TCAss(TCd, AssX):
     return TCa
 
 
-def tc2ss(A, G, b, C, f, y):
+def tc2ss(A, G, C, b, f, y):
     """
         Parameters
         ----------
@@ -151,14 +151,17 @@ def tc2ss(A, G, b, C, f, y):
             square diagonal matrix of conductances
             #rows = #heat flow rates (or resistances)
 
+        C : TYPE np.array
+            square diagonal matrix of capacities
+
         b : TYPE np.array
             vector indicating the presence of temperature sources on branches:
                 1 for branches with temperature sources, otherwise 0
-        C : TYPE np.array
-            square diagonal matrix of capacities
+
         f : TYPE np.array
             vector indicating the presence of flow sources in nodes:
                 1 for nodes with heat sources, otherwise 0
+
         y : TYPE np.array
             vector indicating the temperatures in the outputs:
                 1 for output nodes, otherwise 0
