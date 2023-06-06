@@ -12,9 +12,9 @@ The advantage of the method, as compared with other existing alternatives, is th
 
 The disadvantage is that, in the current implementation, application on large models is tedious and prone to errors. 
 
-The notebooks can be run interactively on `MyBinder.org` by clicking on the button below:
+The notebooks can be run interactively on `MyBinder.org` by clicking on the button [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cghiaus/dm4bem/HEAD).
 
-*Note*: The repository containes the MATLAB® version 6 scripts and the PDFs of the tutorials in the folder `M`.
+*Note*: In the folder `M`, the repository containes the MATLAB® v. 6 scripts and the PDFs of the tutorials for MATLAB® implementation.
 
 ## Tutorials
 1. [Weather data and solar radiation on a tilted surface](01WeatherData.ipynb).
@@ -24,11 +24,11 @@ The notebooks can be run interactively on `MyBinder.org` by clicking on the butt
 5. [Switch between models: heating & cooling and free-running](05SwitchModels.ipynb).
 6. [Control input: heating & cooling and free-running](06Control_Input.ipynb).
 7. [Radiation coupled with convection](07Coupled_rad_convection.ipynb).
-8. [Sensible thermal load in steady-state](08Thermal_load.ipynb)
-9. [Air flow by ventilation](09Air_flow_ventilation.ipynb)
+8. [Sensible thermal load in steady-state](08Thermal_load.ipynb).
+9. [Air flow by ventilation](09Air_flow_ventilation.ipynb).
 
 **Annexes**
-1. Thermal networks for heat trasfer in buildings
+1. [Thermal networks for heat trasfer in buildings](A01_Heat_transfer.ipynb)
 
 ## Project sessions
 The assignments are written in *Jupyter* notebooks and posted on Github in the repository indicated in each assignment. Each repository needs to have:
