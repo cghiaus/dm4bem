@@ -1,0 +1,4 @@
+type,Material,Conductivity,Specific heat,Density,Width,Mesh
+0,Concrete,1.4,880,2300,0.2,1
+0,Insulation,0.027,1210,55,0.08,1
+1,Glass,1.4,750,2500,0.004,1
