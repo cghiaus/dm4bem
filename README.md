@@ -54,9 +54,7 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Define the inputs: temperature sources (vector $b$) and flow rate sources (vector $f$).
  - Write in Pyhthon the incidence matrix $A$, the conductance matrix $G$ and the capacity matrix $C$ of the system of Algebraic Differential Equations (DAE).
  - Write in Pyhthon the vectors of pointers to the temperature sources $b$, flow-rate sources $f$, and outputs $y$.
- - **Assignment 1**: Model
-     - [Grup 1, 2](https://classroom.github.com/a/Fh4jnCT2)
-     - [Grup 3, 4](https://classroom.github.com/a/bl3pb-J7)
+ - **Assignment 1**: [Model](https://classroom.github.com/a/U15u7DVv)
  
 2. **Steady-state**
  - Implement in Python the matrices $A$, $G$ and $C$ of the system of Diferential Algebraic Equations (DAE).
@@ -66,9 +64,7 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Give the values of the input vector $u = [b_T^T, f_Q^T]^T$.
  - Obtain the steady-state response of the state-space representation.
  - Compare the results obtained for the system of Diferential Algebraic Equations (DAE) with the results obtained for the state-space representation. 
- - **Assignment 2**: Steady-state
-     - [Grup 1, 2](https://classroom.github.com/a/6HWx5wze)
-     - [Grup 3, 4](https://classroom.github.com/a/T6cSvhT4)
+ - **Assignment 2**: [Steady-state](https://classroom.github.com/a/ilNJlrhf)
  
 3. **Simulate step response**
  - Determine the time step and the settling time.
@@ -76,9 +72,7 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Integrate in time the differential equations.
  - Plot the results.
  - Discuss the results.
- - **Assignment 3**: Simulate step response
-     - [Grup 1, 2](https://classroom.github.com/a/1YlSy6uy)
-     - [Grup 3, 4](https://classroom.github.com/a/XR32Fbwz)
+ - **Assignment 3**: [Simulate step response](https://classroom.github.com/a/0xoC-mIN)
 
 4. **Simulate response to weather**
  - Define start and end time.
@@ -94,9 +88,7 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Discuss the results.
  - Implement other controllers (dead-band, model predictive control).
  - Discuss the results.
- - **Assignment 4**: Simulate response to weather
-     - [Grup 1, 2](https://classroom.github.com/a/1VJkM4fh)
-     - [Grup 3, 4](https://classroom.github.com/a/1VJkM4fh)
+ - **Assignment 4**: [Simulate response to weather](https://classroom.github.com/a/T5QMe_JZ)
  
 5. **Reproducible report**
  - Write the report in *Jupyter* notebooks.
