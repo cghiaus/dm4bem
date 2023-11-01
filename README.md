@@ -38,7 +38,7 @@ The assignments are written in *Jupyter* notebooks and posted on Github in the r
 The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html) structured with [headings](https://www.markdownguide.org/basic-syntax/#headings) and equations need to be written in [LaTeX](https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html#LaTeX-equations).
 
 
-1. **Model**
+### Model
  - Draw the plan of a two-zone building.
  - Formulate the hypothesis for boundary conditions.
  - Chose the types of windows, doors, and walls.
@@ -56,7 +56,7 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Write in Pyhthon the vectors of pointers to the temperature sources $b$, flow-rate sources $f$, and outputs $y$.
  - **Assignment 1**: [Model](https://classroom.github.com/a/U15u7DVv)
  
-2. **Steady-state**
+### Steady-state
  - Implement in Python the matrices $A$, $G$ and $C$ of the system of Diferential Algebraic Equations (DAE).
  - Give values to inputs (temperature sources, $b$, and flow rate sources $f$).
  - Calculate steady-state response of the system of Diferential Algebraic Equations (DAE).
@@ -66,7 +66,7 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Compare the results obtained for the system of Diferential Algebraic Equations (DAE) with the results obtained for the state-space representation. 
  - **Assignment 2**: [Steady-state](https://classroom.github.com/a/ilNJlrhf)
  
-3. **Simulate step response**
+### Simulate step response
  - Determine the time step and the settling time.
  - Give the input vector $u$.
  - Integrate in time the differential equations.
@@ -74,7 +74,7 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Discuss the results.
  - **Assignment 3**: [Simulate step response](https://classroom.github.com/a/0xoC-mIN)
 
-4. **Simulate response to weather**
+### Simulate response to weather
  - Define start and end time.
  - Prepare the inputs:
      - read weather data,
@@ -88,14 +88,12 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
  - Discuss the results.
  - Implement other controllers (dead-band, model predictive control).
  - Discuss the results.
- - **Assignment 4**: [Simulate response to weather](https://classroom.github.com/a/T5QMe_JZ)
+ - **Assignment 4**: [Simulate response to weather](https://classroom.github.com/a/AOqArrbp)
  
-5. **Reproducible report**
+### Reproducible report
  - Write the report in *Jupyter* notebooks.
  - Publish the report on *GitHub* and *MyBinder*.
- - **Assignment 5**: Reproducible report
-     - [Grup 1, 2](https://classroom.github.com/a/4YDPKTYq)
-     - [Grup 3, 4](https://classroom.github.com/a/Be3bPaux)
+ - **Assignment 5**: [Reproducible report](https://classroom.github.com/a/GmkX7aIg)
 
 **Support**
 
