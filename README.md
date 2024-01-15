@@ -139,6 +139,16 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
 
 
 # Exam questions
+
+**Thermal comfort**
+1. Sensible and latent heat.
+2. Variation of internal (stored energy).
+3. Average heat rate geneated by human metabolisme.
+4. Environmrntal factors that influence the thermal comfort.
+5. Relationship between Predicted Mean Vote (PMV) and Predicted Percentage of Dissasfied (PPD).
+6. Mean radiant temperature and operative temperature.
+
+**Modeling**
 1. Definition of science.
 2. Shortly describe the four paradigms of science (empirical, theoretical, computational and data science).
 3. Reproducibility crises: definition and how to overcome it.
