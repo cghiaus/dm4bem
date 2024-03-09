@@ -144,7 +144,7 @@ The *Jupyter* notebooks need to contain [Markdown cells](https://jupyter-noteboo
 1. Sensible and latent heat.
 2. Variation of internal (stored energy).
 3. Average heat rate geneated by human metabolisme.
-4. Environmrntal factors that influence the thermal comfort.
+4. Environmental factors that influence the thermal comfort.
 5. Relationship between Predicted Mean Vote (PMV) and Predicted Percentage of Dissasfied (PPD).
 6. Mean radiant temperature and operative temperature.
 
